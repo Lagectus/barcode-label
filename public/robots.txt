@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://barcodesworld.in/sitemap.xml

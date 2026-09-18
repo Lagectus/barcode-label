@@ -1,0 +1,244 @@
+import React, { useState, useEffect, useRef } from 'react';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { storySteps } from '../../data/storyData';
+import { Check, ShieldCheck, ArrowRight, Sparkles } from 'lucide-react';
+
+gsap.registerPlugin(ScrollTrigger);
+
+export default function InteractiveStorySection({ onOpenQuoteModal }) {
+  const [activeStep, setActiveStep] = useState(0);
+  const sectionRef = useRef(null);
+
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Synchronize active step as user scrolls past each card
+      storySteps.forEach((_, index) => {
+        ScrollTrigger.create({
+          trigger: `#story-card-${index}`,
+          start: 'top 55%',
+          end: 'bottom 45%',
+          onEnter: () => setActiveStep(index),
+          onEnterBack: () => setActiveStep(index),
+        });
+      });
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  const currentStep = storySteps[activeStep];
+
+  return (
+    <section
+      id="about"
+      ref={sectionRef}
+      className="relative py-24 bg-white border-b border-zinc-200"
+    >
+      {/* Background Decor */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 right-1/4 w-96 h-96 bg-orange-100/40 rounded-full blur-3xl" />
+        <div className="absolute inset-0 technical-grid opacity-30" />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Section Header */}
+        <div className="max-w-3xl mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-500/10 text-[#FF4D00] text-xs font-mono font-bold uppercase tracking-wider mb-4 border border-orange-500/25 shadow-xs">
+            <Sparkles className="w-3.5 h-3.5 text-[#FF4D00]" />
+            <span>ABOUT BDOUBLEU® / BARCODE WORLD</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight leading-tight">
+            Engineered for Precision. <br className="hidden sm:inline" />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4D00] via-orange-600 to-zinc-900">
+              Built for Industrial Scale.
+            </span>
+          </h2>
+          <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed">
+            From our advanced rotary converting facility in Rohini, New Delhi to enterprise supply chains across India, BDOUBLEU® redefines manufacturing reliability in self-adhesive barcode labels, thermal transfer ribbons, and food-safe packaging.
+          </p>
+        </div>
+
+        {/* 2-Column Showcase */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 relative">
+          
+          {/* LEFT COLUMN: Sticky Card follows right column scroll */}
+          <div className="lg:col-span-6 relative">
+            <div className="lg:sticky lg:top-28 space-y-4">
+              
+              {/* Single Image Card */}
+              <div className="relative rounded-3xl overflow-hidden bg-zinc-950 shadow-2xl border border-zinc-800 aspect-[16/11] sm:aspect-[16/11]">
+                
+                {/* Smooth Image Cross-fade based on activeStep */}
+                {storySteps.map((step, idx) => (
+                  <div
+                    key={step.step}
+                    className={`absolute inset-0 transition-all duration-500 ease-out ${
+                      activeStep === idx
+                        ? 'opacity-100 scale-100 filter-none pointer-events-auto'
+                        : 'opacity-0 scale-105 filter blur-xs pointer-events-none'
+                    }`}
+                  >
+                    <img
+                      src={step.image}
+                      alt={step.title}
+                      loading="lazy"
+                      className="w-full h-full object-cover object-center"
+                    />
+                    {/* Dark gradient for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent" />
+
+                    {/* Top Corner Phase Indicator */}
+                    <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-orange-500/30 text-[#FF4D00] font-mono text-xs font-bold flex items-center gap-1.5 shadow-lg">
+                      <span className="w-2 h-2 rounded-full bg-[#FF4D00] animate-ping" />
+                      <span>PHASE {step.step} / 04</span>
+                    </div>
+
+                    {/* Bottom Info Overlay */}
+                    <div className="absolute bottom-6 left-6 right-6 text-white z-20">
+                      <span className="inline-block px-3 py-1 rounded-md bg-[#FF4D00] text-white font-mono text-[11px] font-bold uppercase tracking-wider mb-2 shadow-md">
+                        {step.tag}
+                      </span>
+                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
+                        {step.title}
+                      </h3>
+                      <p className="text-xs sm:text-sm text-zinc-300 mt-1 max-w-md line-clamp-2">
+                        {step.highlight}
+                      </p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* 3 Dedicated Metrics Cards below the single image card */}
+              <div className="grid grid-cols-3 gap-3">
+                {currentStep.metrics.map((metric, mIdx) => (
+                  <div
+                    key={mIdx}
+                    className="p-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-xs transition-all duration-300 hover:border-[#FF4D00]/50 hover:bg-white"
+                  >
+                    <div className="text-[10px] sm:text-[11px] font-semibold text-zinc-500 uppercase tracking-wider truncate">
+                      {metric.label}
+                    </div>
+                    <div className="text-sm sm:text-base font-bold font-mono text-zinc-900 mt-1 truncate">
+                      {metric.value}
+                    </div>
+                  </div>
+                ))}
+              </div>
+
+              {/* Helper indicator bar */}
+              <div className="p-3.5 rounded-2xl bg-orange-50/80 border border-orange-200/90 text-xs text-orange-950 flex items-center justify-between shadow-xs">
+                <span className="flex items-center gap-2 font-medium">
+                  <ShieldCheck className="w-4 h-4 text-[#FF4D00] shrink-0" />
+                  Hover or scroll through the cards to update live specifications
+                </span>
+                <span className="font-mono font-bold text-[#FF4D00] text-xs">
+                  0{activeStep + 1} / 04
+                </span>
+              </div>
+
+            </div>
+          </div>
+
+          {/* RIGHT COLUMN: 4 Cards (Hover updates left visual immediately) */}
+          <div className="lg:col-span-6 space-y-6">
+            {storySteps.map((step, idx) => {
+              const isActive = activeStep === idx;
+              return (
+                <div
+                  key={step.step}
+                  id={`story-card-${idx}`}
+                  onMouseEnter={() => setActiveStep(idx)}
+                  onClick={() => setActiveStep(idx)}
+                  className={`p-6 sm:p-7 rounded-2xl border transition-all duration-300 cursor-pointer relative ${
+                    isActive
+                      ? 'bg-orange-50/20 border-[#FF4D00] shadow-xl shadow-orange-500/10 -translate-y-1'
+                      : 'bg-white border-zinc-200 hover:border-orange-300 hover:bg-zinc-50/60 shadow-sm'
+                  }`}
+                >
+                  {/* Top Accent Line for active card */}
+                  {isActive && (
+                    <div className="absolute top-0 left-0 right-0 h-1 bg-[#FF4D00] rounded-t-2xl shadow-xs" />
+                  )}
+
+                  {/* Step Header */}
+                  <div className="flex items-center justify-between mb-3.5">
+                    <div className="flex items-center gap-3">
+                      <span
+                        className={`w-9 h-9 rounded-xl flex items-center justify-center font-mono font-bold text-sm transition-colors ${
+                          isActive
+                            ? 'bg-[#FF4D00] text-white shadow-md shadow-orange-500/30'
+                            : 'bg-zinc-100 text-zinc-600'
+                        }`}
+                      >
+                        {step.step}
+                      </span>
+                      <span className="text-xs font-mono font-bold tracking-widest text-[#FF4D00] uppercase">
+                        {step.eyebrow}
+                      </span>
+                    </div>
+
+                    {isActive && (
+                      <span className="text-xs font-bold text-[#FF4D00] bg-orange-100/90 px-3 py-0.5 rounded-full flex items-center gap-1 border border-orange-200">
+                        <Check className="w-3 h-3" /> Live View
+                      </span>
+                    )}
+                  </div>
+
+                  {/* Title & Subtitle */}
+                  <h3 className="text-xl sm:text-2xl font-bold text-zinc-900 tracking-tight mb-1">
+                    {step.title}
+                  </h3>
+                  <div className="text-xs sm:text-sm font-semibold text-[#FF4D00] mb-3">
+                    {step.subtitle}
+                  </div>
+
+                  {/* Description */}
+                  <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed mb-4">
+                    {step.description}
+                  </p>
+
+                  {/* Highlight Pill */}
+                  <div className="p-3.5 rounded-xl bg-zinc-50 border border-zinc-200 text-xs text-zinc-700 flex items-start gap-2.5 shadow-xs mb-4">
+                    <ShieldCheck className="w-4 h-4 text-[#FF4D00] shrink-0 mt-0.5" />
+                    <span>{step.highlight}</span>
+                  </div>
+
+                  {/* Card Action Link */}
+                  <div className="flex items-center justify-between pt-2.5 border-t border-zinc-100 text-xs">
+                    <span className="text-zinc-400 font-medium font-mono">
+                      Phase {step.step} • {step.tag}
+                    </span>
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onOpenQuoteModal(`${step.title} Consultation`);
+                      }}
+                      className="inline-flex items-center gap-1.5 font-bold text-[#FF4D00] hover:text-orange-700 transition-colors cursor-pointer"
+                    >
+                      <span>Discuss Specs</span>
+                      <ArrowRight className="w-3.5 h-3.5" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+
+            {/* Bottom Story CTA */}
+            <div className="pt-4">
+              <button
+                onClick={() => onOpenQuoteModal('Industrial Supply Discussion')}
+                className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-[#FF4D00] hover:text-orange-700 transition-colors group cursor-pointer"
+              >
+                <span>Speak directly with our technical manufacturing team in Rohini, New Delhi</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+              </button>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  );
+}

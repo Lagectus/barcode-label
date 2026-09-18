@@ -1,0 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Space+Grotesk:wght@500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #FF4D00;
+  --color-brand-hover: #E04400;
+  --color-brand-dark: #09090B;
+  --color-brand-muted: #FF6B2B;
+  --color-brand-subtle: #FFF5EE;
+}
+
+@layer base {
+  :root {
+    --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    --font-mono: 'Space Grotesk', monospace;
+    --brand-primary: #FF4D00; /* BDOUBLEU Logo Flame Orange */
+    --brand-primary-hover: #E04400;
+    --brand-dark: #09090B;
+    --brand-light: #F8FAFC;
+  }
+
+  html {
+    font-family: var(--font-sans);
+    scroll-behavior: smooth;
+    color: #09090B;
+    background-color: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #FF4D00;
+}
+
+/* Glassmorphism and modern subtle reflections */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+}
+
+.technical-grid {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(9, 9, 11, 0.04) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(9, 9, 11, 0.04) 1px, transparent 1px);
+}
+
+.dot-pattern {
+  background-image: radial-gradient(rgba(255, 77, 0, 0.12) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Custom card shadow & lift with logo brand glow */
+.card-hover-shadow {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover-shadow:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 35px -10px rgba(9, 9, 11, 0.08), 0 0 1px rgba(255, 77, 0, 0.5);
+}
+
+/* Accessible focus outline */
+*:focus-visible {
+  outline: 2px solid #FF4D00;
+  outline-offset: 2px;
+}
+
+/* Carousel progress bar animation */
+@keyframes progressFill {
+  0% { width: 0%; }
+  100% { width: 100%; }
+}
+
+.animate-progress-bar {
+  animation: progressFill 4.5s linear forwards;
+}
+
+/* Orange Glow shadow utility */
+.glow-orange-box {
+  box-shadow: 0 10px 30px -10px rgba(255, 77, 0, 0.35);
+}
+
+.glow-orange-sm {
+  box-shadow: 0 0 15px rgba(255, 77, 0, 0.3);
+}
+
+/* Industrial Corner HUD accents */
+.hud-corner-tl {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 10px;
+  height: 10px;
+  border-top: 2px solid #FF4D00;
+  border-left: 2px solid #FF4D00;
+}
+
+.hud-corner-br {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 10px;
+  height: 10px;
+  border-bottom: 2px solid #FF4D00;
+  border-right: 2px solid #FF4D00;
+}
+
+/* Shimmer beam */
+@keyframes shimmerBeam {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+.animate-shimmer {
+  animation: shimmerBeam 2.5s infinite;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
