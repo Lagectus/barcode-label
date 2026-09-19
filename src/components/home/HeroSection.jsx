@@ -1,320 +1,332 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ArrowRight, CheckCircle2, Sparkles, Cpu } from 'lucide-react';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 
-gsap.registerPlugin(ScrollTrigger);
+const CAROUSEL_PRODUCTS = [
+  {
+    id: 'barcode-labels',
+    name: 'Industrial Barcode Labels',
+    image: '/products/Barcode-labels/bar-code-1.jpg',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'shipping-labels',
+    name: 'Amazon & Flipkart Shipping Labels',
+    image: '/products/Flipkart-Amazon-shipping-label/51-iGkEwLWL._AC_UF1000,1000_QL80_.jpg',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'direct-thermal-labels',
+    name: 'Direct Thermal Label Rolls',
+    image: '/products/Direct-Thermal-Label/direct-thermal-labels.jpg',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'colored-barcode',
+    name: 'Polyester & Jewelry Labels',
+    image: '/products/Barcode_Labels_Polyster_Jewellery/1.png',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'flipkart-waybills',
+    name: 'Flipkart & Meesho Waybill Rolls',
+    image: '/products/Flipkart-Amazon-shipping-label/1-500-flipktshippinglabelspack1-smartson-original-imah8hzxgzurfpgy.webp',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'bulk-thermal-rolls',
+    name: 'Direct Thermal Bulk Packs',
+    image: '/products/Direct-Thermal-Label/Direct-Thermal-Label-Rolls.jpg',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'butter-paper',
+    name: 'Food-Grade Butter Paper',
+    image: '/products/butter-paper.jpg',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'ribbons',
+    name: 'Thermal Transfer Ribbons',
+    image: '/products/Thermal-Transfer-Ribbon/1a.png',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'printers',
+    name: 'Industrial Barcode Printers',
+    image: '/products/Barcode-Printer/p1.png',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+  {
+    id: 'burger-paper',
+    name: 'Food & Burger Wrapping Paper',
+    image: '/products/Food_and_Burger_Rolls/b1.png',
+    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+  },
+];
 
 export default function HeroSection({ onOpenQuoteModal }) {
-  const heroRef = useRef(null);
-  const videoContainerRef = useRef(null);
-  const contentRef = useRef(null);
-  const eyebrowRef = useRef(null);
-  const titleLine1Ref = useRef(null);
-  const titleLine2Ref = useRef(null);
-  const descRef = useRef(null);
-  const ctaRef = useRef(null);
-  const badgeRef = useRef(null);
-  const cardRef = useRef(null);
-  const scrollIndicatorRef = useRef(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+
+  // Dynamic Typewriter Animation
+  const TYPING_PHRASES = [
+    'Every Single Day.',
+    'Dispatched in 24–48 Hours.',
+    'Die-Cut to ±0.15mm.',
+    '100% ANSI Grade A.',
+  ];
+  const [phraseIdx, setPhraseIdx] = useState(0);
+  const [typedText, setTypedText] = useState('');
+  const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    const fullText = TYPING_PHRASES[phraseIdx];
+    let timeout;
 
-      tl.fromTo(
-        videoContainerRef.current,
-        { opacity: 0, scale: 1.05 },
-        { opacity: 1, scale: 1, duration: 1.2, ease: 'power2.inOut' }
-      )
-      .fromTo(
-        eyebrowRef.current,
-        { opacity: 0, y: -15 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.7'
-      )
-      .fromTo(
-        [titleLine1Ref.current, titleLine2Ref.current],
-        { opacity: 0, y: 35 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.15 },
-        '-=0.4'
-      )
-      .fromTo(
-        descRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.7 },
-        '-=0.4'
-      )
-      .fromTo(
-        ctaRef.current,
-        { opacity: 0, y: 20 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.3'
-      )
-      .fromTo(
-        badgeRef.current,
-        { opacity: 0, scale: 0.95 },
-        { opacity: 1, scale: 1, duration: 0.6 },
-        '-=0.3'
-      )
-      .fromTo(
-        cardRef.current,
-        { opacity: 0, x: 40 },
-        { opacity: 1, x: 0, duration: 0.9, ease: 'power2.out' },
-        '-=0.7'
-      )
-      .fromTo(
-        scrollIndicatorRef.current,
-        { opacity: 0, y: -10 },
-        { opacity: 1, y: 0, duration: 0.6 },
-        '-=0.2'
+    if (!isDeleting && typedText === fullText) {
+      // Pause at end of phrase
+      timeout = setTimeout(() => setIsDeleting(true), 2400);
+    } else if (isDeleting && typedText === '') {
+      // Switch to next phrase
+      setIsDeleting(false);
+      setPhraseIdx((prev) => (prev + 1) % TYPING_PHRASES.length);
+    } else {
+      const speed = isDeleting ? 40 : 90;
+      timeout = setTimeout(() => {
+        setTypedText(
+          isDeleting
+            ? fullText.substring(0, typedText.length - 1)
+            : fullText.substring(0, typedText.length + 1)
+        );
+      }, speed);
+    }
+
+    return () => clearTimeout(timeout);
+  }, [typedText, isDeleting, phraseIdx]);
+
+  const heroRef = useRef(null);
+  const leftColRef = useRef(null);
+  const carouselWrapperRef = useRef(null);
+
+  const total = CAROUSEL_PRODUCTS.length;
+
+  // Infinite Next & Prev
+  const handleNext = () => {
+    setActiveIndex((prev) => (prev + 1) % total);
+  };
+
+  const handlePrev = () => {
+    setActiveIndex((prev) => (prev - 1 + total) % total);
+  };
+
+  // Autoplay functionality (every 4 seconds, pauses on hover)
+  useEffect(() => {
+    if (isPaused) return;
+    const timer = setInterval(() => {
+      handleNext();
+    }, 4000);
+    return () => clearInterval(timer);
+  }, [isPaused, total]);
+
+  // Entrance animations using GSAP
+  useEffect(() => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
+
+    const ctx = gsap.context(() => {
+      gsap.fromTo(
+        leftColRef.current ? leftColRef.current.children : [],
+        { opacity: 0, y: 25 },
+        { opacity: 1, y: 0, duration: 0.8, stagger: 0.1, ease: 'power3.out' }
       );
 
-      // Scroll Parallax
-      gsap.to(videoContainerRef.current, {
-        scale: 1.08,
-        y: 60,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-
-      gsap.to(contentRef.current, {
-        y: -40,
-        opacity: 0.85,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
+      if (carouselWrapperRef.current) {
+        gsap.fromTo(
+          carouselWrapperRef.current,
+          { opacity: 0 },
+          { opacity: 1, duration: 0.9, delay: 0.3, ease: 'power3.out' }
+        );
+      }
     }, heroRef);
 
     return () => ctx.revert();
   }, []);
 
+  // Card dimensions
+  const CARD_WIDTH = 210; // px
+  const CARD_GAP = 16; // px
+  const STEP = CARD_WIDTH + CARD_GAP;
+
+  // Duplicated array to allow smooth circular display
+  const displayProducts = [
+    ...CAROUSEL_PRODUCTS,
+    ...CAROUSEL_PRODUCTS,
+    ...CAROUSEL_PRODUCTS,
+  ];
+
   return (
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-[92vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-zinc-950"
+      className="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-zinc-950 select-none"
     >
-      {/* Background Image - Fully Visible High-Resolution Industrial Facility */}
-      <div
-        ref={videoContainerRef}
-        className="absolute inset-0 z-0 overflow-hidden"
-      >
+      {/* Top Background Banner Image from Barcode-labels */}
+      <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
         <img
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=85"
-          alt="Industrial Barcode Labels Converting Plant"
+          src="/products/Barcode-labels/bg-banner.jpeg"
+          alt="Barcode World Hero Banner"
           className="w-full h-full object-cover object-center"
         />
-
-        {/* Ambient Dark Directional Overlay: Right side has low opacity so factory image is 100% visible, left side balances text contrast */}
-        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/92 via-zinc-950/75 to-zinc-950/35" />
-        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/60" />
-
-        {/* Brand Flame Orange Ambient Glow */}
-        <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-[#FF4D00]/15 rounded-full blur-3xl pointer-events-none" />
-        <div className="absolute bottom-10 left-10 w-96 h-96 bg-orange-600/10 rounded-full blur-3xl pointer-events-none" />
+        {/* Soft Left-Side Gradient Overlay for Content Readability */}
+        <div className="absolute inset-y-0 left-0 w-full lg:w-[50%] bg-gradient-to-r from-zinc-950/85 via-zinc-950/45 to-transparent pointer-events-none" />
       </div>
 
-      {/* Hero Foreground Content */}
-      <div
-        ref={contentRef}
-        className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full"
-      >
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      {/* Main Container */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+          
           {/* Left Column: Headlines & CTAs */}
-          <div className="lg:col-span-7 xl:col-span-8">
+          <div ref={leftColRef} className="lg:col-span-6 xl:col-span-6 max-w-xl lg:self-center lg:-translate-x-[10%]">
             {/* Eyebrow */}
-            <div
-              ref={eyebrowRef}
-              className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/35 text-orange-400 text-xs font-mono font-bold tracking-wider uppercase mb-6 shadow-sm backdrop-blur-sm"
-            >
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4D00] opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF4D00]"></span>
-              </span>
-              <span>BDOUBLEU® CERTIFIED MANUFACTURING • DIRECT FACTORY RATES</span>
+            <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-zinc-300 mb-4">
+              <span className="h-2 w-2 rounded-full bg-[#FF4D00] shrink-0" />
+              <span>BDOUBLEU · CERTIFIED MANUFACTURING · DIRECT FACTORY RATES</span>
             </div>
 
-            {/* Main Headline */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.12] mb-6 drop-shadow-sm">
-              <span ref={titleLine1Ref} className="block text-white">
-                Advanced Labelling &amp;
-              </span>
-              <span ref={titleLine2Ref} className="block text-transparent bg-clip-text bg-gradient-to-r from-[#FF4D00] via-orange-400 to-amber-200">
-                Packaging Solutions
-              </span>
-              <span className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-zinc-200 block mt-2">
-                for High-Volume Indian Supply Chains
-              </span>
+            {/* Main Headline with Real-time Typing Animation */}
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
+              <span className="block text-white">Ten Million</span>
+              <span className="block text-white">Labels.</span>
+
+              {/* Live Typing Text */}
+              <div className="flex flex-wrap items-center mt-2 min-h-[50px] sm:min-h-[64px]">
+                {/* Animated Typing Text with Blinking Cursor */}
+                <span className="inline-flex items-center text-[#FF4D00]">
+                  <span>{typedText}</span>
+                  <span className="inline-block w-[3px] sm:w-[4px] h-[0.85em] bg-[#FF4D00] ml-1.5 animate-pulse" />
+                </span>
+              </div>
             </h1>
 
-            {/* Supporting Statement */}
-            <p
-              ref={descRef}
-              className="text-base sm:text-lg text-zinc-300 max-w-2xl leading-relaxed mb-8"
-            >
-              <strong className="text-white">BDOUBLEU (bw)® / Barcode World</strong> engineers industrial-grade <strong className="text-white">Barcode Labels</strong>, <strong className="text-white">Flipkart &amp; Amazon Shipping Labels</strong>, <strong className="text-white">Direct Thermal Rolls</strong>, <strong className="text-white">Thermal Transfer Ribbons</strong>, and <strong className="text-white">Food Grade Butter Paper</strong> with ±0.15mm precision rotary die-cutting and PAN-India JIT dispatch.
+            {/* Subhead */}
+            <p className="text-sm sm:text-base text-zinc-300 max-w-lg leading-relaxed mb-8 font-normal">
+              Barcode labels, thermal rolls, ribbons and food-grade butter paper — die-cut to ±0.15mm and dispatched PAN-India in 24–48 hours.
             </p>
 
-            {/* CTA Buttons */}
-            <div
-              ref={ctaRef}
-              className="flex flex-wrap items-center gap-4 mb-10"
-            >
+            {/* CTA Buttons & Scroll Indicator Row */}
+            <div className="flex flex-wrap items-center gap-4 sm:gap-6">
               <button
-                onClick={() => onOpenQuoteModal()}
-                className="group relative inline-flex items-center gap-2.5 px-8 py-4 rounded-xl bg-[#FF4D00] hover:bg-[#E04400] text-white font-bold text-base shadow-xl shadow-orange-500/30 transition-all duration-300 hover:shadow-orange-500/40 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer overflow-hidden"
+                onClick={() => onOpenQuoteModal && onOpenQuoteModal()}
+                className="inline-flex items-center gap-2 px-6 sm:px-7 py-3.5 rounded-xl bg-[#FF4D00] hover:bg-[#E04400] text-white font-bold text-sm sm:text-base shadow-xl shadow-orange-500/25 transition-all duration-200 hover:-translate-y-0.5 active:translate-y-0 cursor-pointer"
               >
-                <span className="relative z-10">Request Factory Quote</span>
-                <ArrowRight className="w-5 h-5 relative z-10 transition-transform duration-200 group-hover:translate-x-1" />
-                <div className="absolute inset-0 w-1/2 h-full bg-white/20 skew-x-12 -translate-x-full group-hover:translate-x-[300%] transition-transform duration-1000 ease-out pointer-events-none" />
+                <span>Request Factory Quote</span>
+                <ArrowRight className="w-4 h-4" />
               </button>
 
               <a
                 href="#products"
-                className="inline-flex items-center gap-2 px-7 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-base border border-white/25 backdrop-blur-md shadow-sm transition-all duration-200 hover:border-orange-400 hover:text-[#FF4D00] active:scale-[0.98]"
+                className="inline-flex items-center px-6 py-3.5 rounded-xl bg-black/40 hover:bg-white/10 text-white font-bold text-sm sm:text-base border border-zinc-700 hover:border-zinc-500 backdrop-blur-md transition-all duration-200 cursor-pointer"
+              >
+                <span>Explore All Products</span>
+              </a>
+
+              {/* Scroll Indicator */}
+              <div className="hidden sm:flex flex-col items-center gap-1 select-none pointer-events-none opacity-50 ml-2">
+                <span className="text-[9px] font-mono tracking-widest text-zinc-400 font-bold">SCROLL</span>
+                <div className="w-4 h-6 rounded-full border border-zinc-500 flex items-start justify-center p-0.5">
+                  <div className="w-1 h-1.5 bg-zinc-300 rounded-full animate-bounce" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column: Lowered Infinite Carousel with Dynamic Background Sync */}
+          <div
+            ref={carouselWrapperRef}
+            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-end mt-12 sm:mt-16 lg:mt-0 lg:pt-24 xl:pt-32 lg:translate-y-16 xl:translate-y-20 pb-2"
+            onMouseEnter={() => setIsPaused(true)}
+            onMouseLeave={() => setIsPaused(false)}
+          >
+            <div className="relative flex items-center">
+              
+              {/* Left Arrow Button */}
+              <button
+                onClick={handlePrev}
+                aria-label="Previous Product"
+                className="absolute -left-3 sm:-left-5 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-zinc-950/85 hover:bg-zinc-900 border border-zinc-700 hover:border-[#FF4D00] text-zinc-300 hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xl backdrop-blur-md cursor-pointer hover:scale-110 active:scale-95"
+              >
+                <ChevronLeft className="w-5 h-5" />
+              </button>
+
+              {/* Carousel Viewport */}
+              <div className="w-full overflow-hidden px-1 py-4">
+                <div
+                  className="flex gap-4 transition-transform duration-700 ease-out will-change-transform"
+                  style={{
+                    transform: `translateX(-${activeIndex * STEP}px)`,
+                  }}
+                >
+                  {displayProducts.map((product, idx) => {
+                    const isCardActive = (idx % total) === activeIndex;
+                    return (
+                      <div
+                        key={`${product.id}-${idx}`}
+                        onClick={() => {
+                          setActiveIndex(idx % total);
+                          if (onOpenQuoteModal) onOpenQuoteModal(product.name);
+                        }}
+                        style={{ width: `${CARD_WIDTH}px` }}
+                        className={`group/card relative shrink-0 h-[225px] sm:h-[235px] rounded-2xl backdrop-blur-md p-3.5 flex flex-col items-center justify-between text-center transition-all duration-300 cursor-pointer overflow-hidden ${
+                          isCardActive
+                            ? 'bg-white/[0.12] border-2 border-[#FF4D00] shadow-[0_0_25px_rgba(255,77,0,0.3)] scale-[1.03]'
+                            : 'bg-white/[0.06] hover:bg-white/[0.10] border border-white/15 hover:border-zinc-400 shadow-xl shadow-black/80 opacity-85 hover:opacity-100'
+                        }`}
+                      >
+                        {/* Product Image Stage */}
+                        <div className="relative w-full h-[140px] rounded-xl bg-black/50 overflow-hidden flex items-center justify-center p-1 border border-white/5">
+                          <img
+                            src={product.image}
+                            alt={product.name}
+                            loading="lazy"
+                            className="w-full h-full object-contain filter drop-shadow-lg group-hover/card:scale-105 transition-transform duration-300 pointer-events-none"
+                          />
+                        </div>
+
+                        {/* Product Title */}
+                        <p className={`text-xs sm:text-sm font-bold tracking-tight leading-snug px-1 line-clamp-2 transition-colors ${
+                          isCardActive ? 'text-[#FF4D00]' : 'text-white group-hover/card:text-[#FF4D00]'
+                        }`}>
+                          {product.name}
+                        </p>
+                      </div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Right Arrow Button */}
+              <button
+                onClick={handleNext}
+                aria-label="Next Product"
+                className="absolute -right-3 sm:-right-5 z-30 w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-zinc-950/85 hover:bg-zinc-900 border border-zinc-700 hover:border-[#FF4D00] text-zinc-300 hover:text-white flex items-center justify-center transition-all duration-200 shadow-2xl backdrop-blur-md cursor-pointer hover:scale-110 active:scale-95"
+              >
+                <ChevronRight className="w-5 h-5" />
+              </button>
+            </div>
+
+            {/* Bottom Link: Explore 11+ Products */}
+            <div className="flex items-center justify-start pl-2 mt-3">
+              <a
+                href="#products"
+                className="inline-flex items-center gap-1.5 text-xs font-bold text-[#FF4D00] hover:text-orange-400 transition-colors"
               >
                 <span>Explore 11+ Products</span>
+                <ChevronRight className="w-3.5 h-3.5" />
               </a>
             </div>
-
-            {/* Trust Badges */}
-            <div
-              ref={badgeRef}
-              className="flex flex-wrap items-center gap-y-3 gap-x-6 text-xs sm:text-sm text-zinc-300 pt-6 border-t border-zinc-800"
-            >
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#FF4D00] shrink-0" />
-                <span className="font-semibold text-zinc-200">ANSI Grade A (4.0) Scan Accuracy</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#FF4D00] shrink-0" />
-                <span className="font-semibold text-zinc-200">Amazon &amp; Flipkart Certified</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2 className="w-4 h-4 text-[#FF4D00] shrink-0" />
-                <span className="font-semibold text-zinc-200">Direct Manufacturer Pricing</span>
-              </div>
-            </div>
           </div>
 
-          {/* Right Column: High-Tech Telemetry HUD Card */}
-          <div ref={cardRef} className="lg:col-span-5 xl:col-span-4 hidden lg:block">
-            <div className="relative rounded-3xl bg-zinc-950/90 backdrop-blur-md p-6 text-white shadow-2xl shadow-black/60 border border-zinc-800 overflow-hidden group">
-              {/* Industrial HUD Corners */}
-              <div className="hud-corner-tl" />
-              <div className="hud-corner-br" />
-
-              {/* Ambient Glow */}
-              <div className="absolute -top-12 -right-12 w-44 h-44 bg-[#FF4D00]/25 rounded-full blur-3xl pointer-events-none" />
-
-              {/* Header Telemetry */}
-              <div className="flex items-center justify-between pb-4 border-b border-zinc-800/80 mb-4">
-                <div className="flex items-center gap-2">
-                  <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-                  </span>
-                  <span className="text-[11px] font-mono tracking-wider uppercase text-zinc-400">
-                    OPTICAL QC STATION #02
-                  </span>
-                </div>
-                <span className="text-[10px] font-mono bg-orange-500/20 text-[#FF4D00] border border-orange-500/30 px-2 py-0.5 rounded font-bold">
-                  ANSI A (4.0)
-                </span>
-              </div>
-
-              {/* Inspection Visual Showcase */}
-              <div className="relative rounded-xl overflow-hidden bg-zinc-900 border border-zinc-800 aspect-[4/3] mb-4 flex items-center justify-center p-3">
-                {/* Barcode Mockup Image */}
-                <img
-                  src="https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=800&q=80"
-                  alt="Industrial barcode label rolls inspection"
-                  className="w-full h-full object-cover rounded-lg opacity-90 group-hover:scale-105 transition-transform duration-500"
-                />
-
-                {/* Dark Vignette Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/70 via-transparent to-zinc-950/30 pointer-events-none" />
-
-                {/* Corner Quality Badge */}
-                <div className="absolute top-2.5 right-2.5 z-10">
-                  <div className="text-center bg-zinc-950/85 backdrop-blur-md px-3 py-1 rounded-full border border-orange-500/30 shadow-md">
-                    <span className="text-[10px] font-mono text-[#FF4D00] font-bold">100% QUALITY VERIFIED</span>
-                  </div>
-                </div>
-
-                {/* Bottom Spec Badge */}
-                <div className="absolute bottom-2 left-2 right-2 flex items-center justify-between text-[10px] font-mono text-zinc-400 px-2 py-1 rounded bg-zinc-950/80 backdrop-blur-sm border border-zinc-800">
-                  <span>LOT: #DEL-2026-B8</span>
-                  <span className="text-[#FF4D00]">TOLERANCE: ±0.15mm</span>
-                </div>
-              </div>
-
-              {/* High-Impact Production Metrics */}
-              <div className="space-y-2.5 mb-5">
-                <div className="p-3 rounded-xl bg-zinc-900/90 border border-zinc-800/80 flex items-center justify-between hover:border-orange-500/30 transition-colors">
-                  <div className="flex items-center gap-2.5">
-                    <Cpu className="w-4 h-4 text-[#FF4D00]" />
-                    <div>
-                      <div className="text-[11px] text-zinc-400">Daily Label Production</div>
-                      <div className="text-base font-bold text-white font-mono">10,000,000+ Units</div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-orange-500/10 text-[#FF4D00] border border-orange-500/20 font-mono font-semibold">
-                    HIGH-SPEED
-                  </span>
-                </div>
-
-                <div className="p-3 rounded-xl bg-zinc-900/90 border border-zinc-800/80 flex items-center justify-between hover:border-orange-500/30 transition-colors">
-                  <div className="flex items-center gap-2.5">
-                    <Sparkles className="w-4 h-4 text-[#FF4D00]" />
-                    <div>
-                      <div className="text-[11px] text-zinc-400">PAN-India Dispatch Time</div>
-                      <div className="text-base font-bold text-white font-mono">24 – 48 Hours</div>
-                    </div>
-                  </div>
-                  <span className="text-[10px] px-2 py-0.5 rounded bg-zinc-800 text-zinc-300 font-mono font-semibold">
-                    EXPRESS
-                  </span>
-                </div>
-              </div>
-
-              {/* Bottom Interactive Trigger */}
-              <div className="pt-3 border-t border-zinc-800/80 flex items-center justify-between text-xs">
-                <span className="text-zinc-400">Need custom roll dimensions?</span>
-                <button
-                  onClick={() => onOpenQuoteModal('Custom Barcode Label')}
-                  className="text-[#FF4D00] font-bold hover:text-orange-400 transition-colors flex items-center gap-1.5 group/btn cursor-pointer"
-                >
-                  <span>Request Free Sample</span>
-                  <ArrowRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-1" />
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Continuous Animated Scroll Indicator */}
-      <div
-        ref={scrollIndicatorRef}
-        className="absolute bottom-4 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center pointer-events-none"
-      >
-        <span className="text-[10px] uppercase font-mono tracking-widest text-zinc-400 mb-1.5 font-bold">
-          SCROLL TO EXPLORE
-        </span>
-        <div className="w-5 h-8 rounded-full border-2 border-zinc-600 flex items-start justify-center p-1 bg-zinc-950/50 backdrop-blur-sm shadow-sm">
-          <div className="w-1.5 h-2.5 bg-[#FF4D00] rounded-full animate-bounce" />
         </div>
       </div>
     </section>

@@ -40,8 +40,8 @@ export default function ProductDetailPage({
   const titleRef = useRef(null);
   const contentRef = useRef(null);
 
-  // Find product by id or fallback to first product
-  const product = products.find((p) => p.id === productId) || products[0];
+  // Find product by id or aliases, or fallback to first product
+  const product = products.find((p) => p.id === productId || (p.aliases && p.aliases.includes(productId))) || products[0];
 
   // Related products from same category or next products
   const relatedProducts = products
@@ -49,11 +49,13 @@ export default function ProductDetailPage({
     .slice(0, 3);
 
   // Alternate visual gallery images for the product
-  const galleryImages = [
-    product.image,
-    'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=900&q=80',
-    'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
-  ];
+  const galleryImages = product.gallery && product.gallery.length > 0
+    ? product.gallery
+    : [product.image];
+
+  useEffect(() => {
+    setSelectedImageIdx(0);
+  }, [productId]);
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -103,24 +105,20 @@ export default function ProductDetailPage({
         ref={bannerRef}
         className="relative bg-zinc-950 text-white overflow-hidden py-16 lg:py-24 border-b border-zinc-800"
       >
-        {/* Banner Background Image with Cinematic Scrim */}
+        {/* Banner Background Image */}
         <div className="absolute inset-0 z-0">
           <img
-            src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2400&q=80"
-            alt="Factory Production Facility"
-            className="w-full h-full object-cover object-center opacity-30"
+            src={product.banner || '/products/Barcode-labels/bg-banner.jpeg'}
+            alt={`${product.name} Banner`}
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-r from-zinc-950 via-zinc-950/90 to-zinc-950/60" />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-transparent to-zinc-950/40" />
-
-          {/* Ambient Flame Orange Brand Glow */}
-          <div className="absolute top-1/3 right-1/4 w-[450px] h-[450px] bg-[#FF4D00]/15 rounded-full blur-3xl pointer-events-none" />
-          <div className="absolute inset-0 technical-grid opacity-25 pointer-events-none" />
+          {/* Left-Side Soft Black Overlay for Text Readability */}
+          <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[50%] bg-gradient-to-r from-zinc-950/85 via-zinc-950/50 to-transparent pointer-events-none" />
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
           {/* Breadcrumb Navigation */}
-          <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-6 flex-wrap">
+          <div className="flex items-center gap-2 text-xs font-mono text-zinc-300 mb-6 flex-wrap drop-shadow-sm">
             <button
               onClick={onNavigateHome}
               className="hover:text-white transition-colors cursor-pointer flex items-center gap-1"
@@ -142,11 +140,11 @@ export default function ProductDetailPage({
             </span>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            {/* Left Column: Title & Key Selling Proposition */}
-            <div ref={titleRef} className="lg:col-span-8">
+          <div className="max-w-2xl">
+            {/* Title & Key Selling Proposition */}
+            <div ref={titleRef}>
               {/* Category & Status Eyebrow */}
-              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-[#FF4D00] text-xs font-mono font-bold uppercase tracking-wider mb-4 shadow-sm">
+              <div className="inline-flex items-center gap-2.5 px-3.5 py-1.5 rounded-full bg-zinc-950/70 border border-orange-500/40 text-[#FF4D00] text-xs font-mono font-bold uppercase tracking-wider mb-4 shadow-sm backdrop-blur-xs">
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF4D00] opacity-75"></span>
                   <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF4D00]"></span>
@@ -155,31 +153,31 @@ export default function ProductDetailPage({
               </div>
 
               {/* Main Product Title */}
-              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4 drop-shadow-[0_2px_6px_rgba(0,0,0,0.8)]">
                 {product.name}
               </h1>
 
               {/* Tagline */}
-              <div className="text-base sm:text-lg font-semibold text-orange-400 mb-4">
+              <div className="text-base sm:text-lg font-semibold text-[#FF8533] mb-4 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                 {product.tagline}
               </div>
 
               {/* Description */}
-              <p className="text-sm sm:text-base text-zinc-300 max-w-2xl leading-relaxed mb-8">
+              <p className="text-sm sm:text-base text-zinc-200 max-w-xl leading-relaxed mb-8 drop-shadow-[0_1px_3px_rgba(0,0,0,0.8)]">
                 {product.description}
               </p>
 
               {/* Quick Spec Highlights */}
               <div className="flex flex-wrap gap-3 mb-8">
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-300">
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-zinc-300 shadow-sm">
                   <Truck className="w-4 h-4 text-[#FF4D00]" />
                   <span>24–48h Dispatch</span>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-300">
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-zinc-300 shadow-sm">
                   <ShieldCheck className="w-4 h-4 text-[#FF4D00]" />
                   <span>ANSI Grade A (4.0)</span>
                 </div>
-                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/80 border border-zinc-800 text-xs font-mono text-zinc-300">
+                <div className="flex items-center gap-2 px-3.5 py-2 rounded-xl bg-zinc-900/90 border border-zinc-800 text-xs font-mono text-zinc-300 shadow-sm">
                   <Layers className="w-4 h-4 text-[#FF4D00]" />
                   <span>Custom Core 1" &amp; 3"</span>
                 </div>
@@ -196,50 +194,11 @@ export default function ProductDetailPage({
                 </button>
                 <button
                   onClick={onNavigateHome}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-white/10 hover:bg-white/15 text-white font-bold text-sm border border-white/20 transition-all cursor-pointer"
+                  className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-zinc-900/80 hover:bg-zinc-900 text-white font-bold text-sm border border-zinc-700 shadow-md transition-all cursor-pointer"
                 >
                   <ArrowLeft className="w-4 h-4" />
                   <span>Back to All Products</span>
                 </button>
-              </div>
-            </div>
-
-            {/* Right Column: Hero Spec Widget */}
-            <div className="lg:col-span-4 hidden lg:block">
-              <div className="p-6 rounded-3xl bg-zinc-900/90 border border-zinc-800 shadow-2xl relative overflow-hidden">
-                <div className="hud-corner-tl" />
-                <div className="hud-corner-br" />
-
-                <div className="flex items-center justify-between pb-3 border-b border-zinc-800 text-xs text-zinc-400 font-mono">
-                  <span>SPECIFICATION ID</span>
-                  <span className="text-[#FF4D00] font-bold">#{product.id.toUpperCase()}</span>
-                </div>
-
-                <div className="py-4 space-y-3">
-                  <div className="flex justify-between text-xs">
-                    <span className="text-zinc-500">Target Applications:</span>
-                    <span className="font-semibold text-zinc-300 text-right">{product.applications[0]}</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-zinc-500">Material Standard:</span>
-                    <span className="font-semibold text-zinc-300 text-right">Top-Grade Converting</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-zinc-500">Die-Cut Tolerance:</span>
-                    <span className="font-bold font-mono text-[#FF4D00]">±0.15 mm</span>
-                  </div>
-                  <div className="flex justify-between text-xs">
-                    <span className="text-zinc-500">Minimum Order Batch:</span>
-                    <span className="font-semibold text-zinc-300">Custom Rolls / Cartons</span>
-                  </div>
-                </div>
-
-                <div className="pt-3 border-t border-zinc-800 flex items-center justify-between text-xs text-zinc-400">
-                  <span>Fast Factory Contact:</span>
-                  <a href="tel:+919811000000" className="text-[#FF4D00] font-bold hover:underline">
-                    +91 98110 00000
-                  </a>
-                </div>
               </div>
             </div>
           </div>
@@ -254,13 +213,12 @@ export default function ProductDetailPage({
             {/* Left Column: Visual Gallery & Built-In RFQ Form */}
             <div className="lg:col-span-6 space-y-8">
               {/* Main Product Image Container */}
-              <div className="relative rounded-3xl overflow-hidden bg-zinc-950 border border-zinc-200 shadow-xl aspect-[4/3]">
+              <div className="relative rounded-3xl overflow-hidden bg-zinc-100 border border-zinc-200 shadow-xl aspect-[4/3]">
                 <img
                   src={galleryImages[selectedImageIdx]}
                   alt={product.name}
                   className="w-full h-full object-cover object-center transition-all duration-500"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent pointer-events-none" />
 
                 {/* Top Badge */}
                 <div className="absolute top-4 left-4 z-10">
@@ -275,13 +233,13 @@ export default function ProductDetailPage({
                     {product.popular ? '★ HIGH DEMAND INDUSTRIAL ROLL' : 'CUSTOM MANUFACTURED'}
                   </span>
                   <span className="text-xs font-mono text-zinc-300">
-                    Image {selectedImageIdx + 1} of 3
+                    Image {selectedImageIdx + 1} of {galleryImages.length}
                   </span>
                 </div>
               </div>
 
               {/* Gallery Thumbnails */}
-              <div className="flex items-center gap-3">
+              <div className="flex items-center gap-3 overflow-x-auto pb-2 scrollbar-none">
                 {galleryImages.map((img, idx) => (
                   <button
                     key={idx}

@@ -11,9 +11,9 @@ export default function ProductModal({ product, onClose, onOpenQuoteModal }) {
           <img
             src={product.image}
             alt={product.name}
-            className="w-full h-full object-cover object-center opacity-80"
+            className="w-full h-full object-cover object-center"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/80 via-transparent to-transparent" />
           
           <button
             onClick={onClose}

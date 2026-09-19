@@ -27,8 +27,6 @@ export default function InteractiveStorySection({ onOpenQuoteModal }) {
     return () => ctx.revert();
   }, []);
 
-  const currentStep = storySteps[activeStep];
-
   return (
     <section
       id="about"
@@ -66,8 +64,8 @@ export default function InteractiveStorySection({ onOpenQuoteModal }) {
           <div className="lg:col-span-6 relative">
             <div className="lg:sticky lg:top-28 space-y-4">
               
-              {/* Single Image Card */}
-              <div className="relative rounded-3xl overflow-hidden bg-zinc-950 shadow-2xl border border-zinc-800 aspect-[16/11] sm:aspect-[16/11]">
+              {/* Single Image Card - 1:1 Square Ratio Matching Exact Image Dimensions */}
+              <div className="relative rounded-3xl overflow-hidden bg-white shadow-xl border border-zinc-200 aspect-square w-full">
                 
                 {/* Smooth Image Cross-fade based on activeStep */}
                 {storySteps.map((step, idx) => (
@@ -83,48 +81,57 @@ export default function InteractiveStorySection({ onOpenQuoteModal }) {
                       src={step.image}
                       alt={step.title}
                       loading="lazy"
-                      className="w-full h-full object-cover object-center"
+                      className="w-full h-full object-contain object-center rounded-3xl"
                     />
-                    {/* Dark gradient for text readability */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/90 via-zinc-950/30 to-transparent" />
-
-                    {/* Top Corner Phase Indicator */}
-                    <div className="absolute top-4 right-4 z-20 px-3 py-1.5 rounded-xl bg-zinc-950/80 backdrop-blur-md border border-orange-500/30 text-[#FF4D00] font-mono text-xs font-bold flex items-center gap-1.5 shadow-lg">
-                      <span className="w-2 h-2 rounded-full bg-[#FF4D00] animate-ping" />
-                      <span>PHASE {step.step} / 04</span>
-                    </div>
-
-                    {/* Bottom Info Overlay */}
-                    <div className="absolute bottom-6 left-6 right-6 text-white z-20">
-                      <span className="inline-block px-3 py-1 rounded-md bg-[#FF4D00] text-white font-mono text-[11px] font-bold uppercase tracking-wider mb-2 shadow-md">
-                        {step.tag}
-                      </span>
-                      <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight">
-                        {step.title}
-                      </h3>
-                      <p className="text-xs sm:text-sm text-zinc-300 mt-1 max-w-md line-clamp-2">
-                        {step.highlight}
-                      </p>
-                    </div>
                   </div>
                 ))}
               </div>
 
-              {/* 3 Dedicated Metrics Cards below the single image card */}
-              <div className="grid grid-cols-3 gap-3">
-                {currentStep.metrics.map((metric, mIdx) => (
-                  <div
-                    key={mIdx}
-                    className="p-3.5 rounded-2xl bg-zinc-50 border border-zinc-200 shadow-xs transition-all duration-300 hover:border-[#FF4D00]/50 hover:bg-white"
-                  >
-                    <div className="text-[10px] sm:text-[11px] font-semibold text-zinc-500 uppercase tracking-wider truncate">
-                      {metric.label}
+              {/* Dual Facility Real Photo Switcher (1.jpeg & 2.jpeg) */}
+              <div className="grid grid-cols-2 gap-3">
+                <button
+                  type="button"
+                  onClick={() => setActiveStep(0)}
+                  className={`group relative rounded-2xl overflow-hidden border-2 transition-all p-2 flex items-center gap-3 text-left cursor-pointer ${
+                    activeStep % 2 === 0
+                      ? 'border-[#FF4D00] bg-orange-50/80 shadow-md shadow-orange-500/10'
+                      : 'border-zinc-200 bg-white hover:border-zinc-300'
+                  }`}
+                >
+                  <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-zinc-900 border border-zinc-200">
+                    <img src="/1.jpeg" alt="Converting Plant Floor" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  </div>
+                  <div className="min-w-0 pr-1">
+                    <div className="text-xs font-bold text-zinc-900 group-hover:text-[#FF4D00] transition-colors truncate">
+                      Facility Plant 01
                     </div>
-                    <div className="text-sm sm:text-base font-bold font-mono text-zinc-900 mt-1 truncate">
-                      {metric.value}
+                    <div className="text-[11px] text-zinc-500 font-mono">
+                      Converting Lines
                     </div>
                   </div>
-                ))}
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => setActiveStep(1)}
+                  className={`group relative rounded-2xl overflow-hidden border-2 transition-all p-2 flex items-center gap-3 text-left cursor-pointer ${
+                    activeStep % 2 === 1
+                      ? 'border-[#FF4D00] bg-orange-50/80 shadow-md shadow-orange-500/10'
+                      : 'border-zinc-200 bg-white hover:border-zinc-300'
+                  }`}
+                >
+                  <div className="w-12 h-12 rounded-xl overflow-hidden shrink-0 bg-zinc-900 border border-zinc-200">
+                    <img src="/2.jpeg" alt="Slitting & Finishing Lines" className="w-full h-full object-cover group-hover:scale-105 transition-transform" />
+                  </div>
+                  <div className="min-w-0 pr-1">
+                    <div className="text-xs font-bold text-zinc-900 group-hover:text-[#FF4D00] transition-colors truncate">
+                      Facility Plant 02
+                    </div>
+                    <div className="text-[11px] text-zinc-500 font-mono">
+                      Slitting & Logistics
+                    </div>
+                  </div>
+                </button>
               </div>
 
               {/* Helper indicator bar */}

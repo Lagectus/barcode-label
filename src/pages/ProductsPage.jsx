@@ -46,11 +46,16 @@ export default function ProductsPage({ onOpenQuoteModal, onNavigateProduct, onNa
     <div className="pt-24 bg-zinc-50 min-h-screen text-zinc-900">
       {/* 1. Cinematic Hero Banner */}
       <section ref={headerRef} className="relative bg-zinc-950 text-white py-20 lg:py-24 border-b border-zinc-800 overflow-hidden">
-        <div className="absolute inset-0 technical-grid opacity-20 pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+        <img
+          src="/products/Barcode-labels/bg-banner.jpeg"
+          alt="Industrial Products Catalog Banner"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+        />
+        {/* Left-Side Soft Black Overlay for Text Readability */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[50%] bg-gradient-to-r from-zinc-950/85 via-zinc-950/50 to-transparent pointer-events-none" />
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-6">
+        <div className="w-full px-6 sm:px-10 lg:px-16 xl:px-20 relative z-10">
+          <div className="flex items-center gap-2 text-xs font-mono text-zinc-300 mb-6 drop-shadow-sm">
             <button 
               onClick={() => onNavigatePage('home')}
               className="hover:text-white transition-colors cursor-pointer"
@@ -61,7 +66,7 @@ export default function ProductsPage({ onOpenQuoteModal, onNavigateProduct, onNa
             <span className="text-[#FF4D00] font-bold">Industrial Product Catalog</span>
           </div>
 
-          <div className="max-w-3xl">
+          <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-orange-500/15 border border-orange-500/30 text-[#FF4D00] text-xs font-mono font-bold uppercase tracking-wider mb-5">
               <Package className="w-3.5 h-3.5" />
               <span>11+ DIRECT CONVERTING LINES • WHOLESALE FACTORY SUPPLY</span>
@@ -177,14 +182,13 @@ export default function ProductsPage({ onOpenQuoteModal, onNavigateProduct, onNa
                 {/* Image Section */}
                 <div 
                   onClick={() => onNavigateProduct(p.id)}
-                  className="relative h-56 overflow-hidden bg-zinc-950 cursor-pointer"
+                  className="relative h-56 overflow-hidden bg-zinc-100 cursor-pointer"
                 >
                   <img
                     src={p.image}
                     alt={p.name}
-                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-95"
+                    className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 opacity-100"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent pointer-events-none" />
 
                   {/* Top Badges */}
                   <div className="absolute top-3 left-3 flex items-center gap-2">

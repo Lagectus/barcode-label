@@ -31,7 +31,15 @@ export const products = [
       'Custom die-cut shapes, perforations, and gap sensors available'
     ],
     applications: ['Warehouse Logistics', 'Retail POS', 'Pharma Inventory', 'Manufacturing Assets'],
-    image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=900&q=80',
+    image: '/products/Barcode-labels/bar-code-1.jpg',
+    banner: '/products/Barcode-labels/bg-banner.jpeg',
+    gallery: [
+      '/products/Barcode-labels/bar-code-1.jpg',
+      '/products/Barcode-labels/colored-barcode-label-sticker--20251230020901022.webp',
+      '/products/Barcode-labels/product-jpeg-500x500.webp',
+      '/products/Barcode-labels/images (1).jpg',
+      '/products/Barcode-labels/images (2).jpg'
+    ],
     popular: true,
     seoKeyword: 'Barcode Labels Manufacturer in India'
   },
@@ -57,7 +65,15 @@ export const products = [
       'Zero curling technology prevents automated dispenser sensor errors'
     ],
     applications: ['E-Commerce Hubs', '3PL Fulfillment Centers', 'Courier Dispatch', 'Cross-Docking'],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=900&q=80',
+    image: '/products/Flipkart-Amazon-shipping-label/51-iGkEwLWL._AC_UF1000,1000_QL80_.jpg',
+    banner: '/products/Flipkart-Amazon-shipping-label/bg-banner.jpeg',
+    gallery: [
+      '/products/Flipkart-Amazon-shipping-label/51-iGkEwLWL._AC_UF1000,1000_QL80_.jpg',
+      '/products/Flipkart-Amazon-shipping-label/shipment_label_requirements_image.png',
+      '/products/Flipkart-Amazon-shipping-label/1-500-flipktshippinglabelspack1-smartson-original-imah8hzxgzurfpgy.webp',
+      '/products/Flipkart-Amazon-shipping-label/images (1).jpg',
+      '/products/Flipkart-Amazon-shipping-label/images (2).jpg'
+    ],
     popular: true,
     seoKeyword: 'Flipkart / Amazon Shipping Label Manufacturer in India'
   },
@@ -83,7 +99,15 @@ export const products = [
       'Optimized for rapid parcel weighing and point-of-sale receipt printers'
     ],
     applications: ['Supermarkets & Retail', 'Cold Storage Goods', 'Courier Waybills', 'Hospital Labs'],
-    image: 'https://images.unsplash.com/photo-1563986768609-322da13575f3?auto=format&fit=crop&w=900&q=80',
+    image: '/products/Direct-Thermal-Label/direct-thermal-labels.jpg',
+    banner: '/products/Direct-Thermal-Label/BG-BANNER.jpeg',
+    gallery: [
+      '/products/Direct-Thermal-Label/direct-thermal-labels.jpg',
+      '/products/Direct-Thermal-Label/Direct-Thermal-Label-Rolls.jpg',
+      '/products/Direct-Thermal-Label/Thermal-Labels.jpg',
+      '/products/Direct-Thermal-Label/direct-thermal-labels-554.jpg',
+      '/products/Direct-Thermal-Label/images (4).jpg'
+    ],
     popular: true,
     seoKeyword: 'Direct Thermal Label Manufacturer'
   },
@@ -109,7 +133,15 @@ export const products = [
       'Crisp readability under retail supermarket LED overhead lighting'
     ],
     applications: ['FMCG Packaging', 'Garment Price Tags', 'Pharma Cartons', 'Hardware Retail'],
-    image: 'https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?auto=format&fit=crop&w=900&q=80',
+    image: '/products/MRP-Label-Manufacturer/81ssQQdgNfL._AC_UF1000,1000_QL80_.jpg',
+    banner: '/products/MRP-Label-Manufacturer/bg-banner.jpeg',
+    gallery: [
+      '/products/MRP-Label-Manufacturer/81ssQQdgNfL._AC_UF1000,1000_QL80_.jpg',
+      '/products/MRP-Label-Manufacturer/mrp-labels-printing-services-1000x1000.webp',
+      '/products/MRP-Label-Manufacturer/71LklMLBl2L._AC_UF1000,1000_QL80_.jpg',
+      '/products/MRP-Label-Manufacturer/1775908059-8614-ID-Labels.jpg',
+      '/products/MRP-Label-Manufacturer/printed-price-labels-500x500.webp'
+    ],
     popular: false,
     seoKeyword: 'MRP Label Manufacturer in India'
   },
@@ -135,12 +167,21 @@ export const products = [
       'Breathable composition prevents condensation buildup and keeps bread crisp'
     ],
     applications: ['Bakeries & Cafes', 'QSR Chains & Cloud Kitchens', 'Butter & Cheese Packing', 'Home Kitchens'],
-    image: 'https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=900&q=80',
+    image: '/products/butter-paper.jpg',
+    banner: '/products/Butter-Paper-Rolls/bg-banner.jpeg',
+    gallery: [
+      '/products/butter-paper.jpg',
+      '/products/Butter-Paper-Rolls/Butter-Paper-Jumbo-Roll.jpg',
+      '/products/Butter-Paper-Rolls/Parchment-Paper-2-Side-Coated.jpg',
+      '/products/Butter-Paper-Rolls/images.jpg',
+      '/products/Butter-Paper-Rolls/images (1).jpg'
+    ],
     popular: true,
     seoKeyword: 'Butter Paper Rolls Manufacturer'
   },
   {
-    id: 'food-wrapping-paper',
+    id: 'burger-wrapping-paper-rolls',
+    aliases: ['food-wrapping-paper'],
     name: 'Food & Burger Wrapping Paper Rolls',
     category: 'paper-rolls',
     categoryName: 'Food & Butter Paper Rolls',
@@ -159,8 +200,16 @@ export const products = [
       'Excellent fold memory ensures neat wrap holds firmly in transit',
       'Eco-friendly, recyclable, and compostable grades available'
     ],
-    applications: ['Burger & Sandwich Joints', 'Roll & Shawarma Outlets', 'Food Trucks', 'Catering Operations'],
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=900&q=80',
+    applications: ['Burger & Sandwiches', 'QSR & Cafes', 'Food Trucks', 'Catering Operations'],
+    image: '/products/Food_and_Burger_Rolls/b1.png',
+    banner: '/products/Food_and_Burger_Rolls/bg-banner.jpeg',
+    gallery: [
+      '/products/Food_and_Burger_Rolls/b1.png',
+      '/products/Food_and_Burger_Rolls/b2.png',
+      '/products/Food_and_Burger_Rolls/b3.png',
+      '/products/Food_and_Burger_Rolls/B4.png',
+      '/products/Food_and_Burger_Rolls/B5.png'
+    ],
     popular: true,
     seoKeyword: 'Food and Burger Wrapping Paper Rolls'
   },
@@ -186,67 +235,60 @@ export const products = [
       'Patented anti-static coating prevents ribbon wrinkling at 12 inches/sec print speeds'
     ],
     applications: ['Automotive Assemblies', 'Chemical Drum Labelling', 'Asset Tracking', 'Export Logistics'],
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=900&q=80',
+    image: '/products/Thermal-Transfer-Ribbon/1a.png',
+    banner: '/products/Thermal-Transfer-Ribbon/bg-banner.jpeg',
+    gallery: [
+      '/products/Thermal-Transfer-Ribbon/1a.png',
+      '/products/Thermal-Transfer-Ribbon/1b.png',
+      '/products/Thermal-Transfer-Ribbon/1c.png',
+      '/products/Thermal-Transfer-Ribbon/1d.png',
+      '/products/Thermal-Transfer-Ribbon/1e.png'
+    ],
     popular: true,
     seoKeyword: 'Thermal Transfer Ribbon Manufacturer in India'
   },
   {
-    id: 'polyester-labels',
-    name: 'Polyester & Non-Tearable Labels',
+    id: 'polyester-jewelry-labels',
+    aliases: ['polyester-labels', 'jewelry-labels'],
+    name: 'Barcode Labels, Polyester & Jewelry Labels',
     category: 'specialty-labels',
     categoryName: 'Polyester & Jewelry',
-    tagline: 'Extreme Durability for Harsh Environments',
-    description: 'Synthetic PET, PP, and BOPP self-adhesive labels engineered for permanent outdoor exposure, industrial machinery rating plates, and chemical resistance.',
+    tagline: 'High-Durability Synthetic PET & Glue-Free Stem Jewelry Tags',
+    description: 'Specialty synthetic polyester (PET/BOPP) non-tearable labels and non-adhesive center-stem jewelry dumbbell & butterfly tags engineered for harsh industrial environments, electronics asset tagging, and fine jewelry showrooms.',
     specifications: {
       'Face Material': 'Mylar / Matte Silver Polyester / White Gloss PET',
-      'Caliper': '50 Micron / 75 Micron film thickness',
-      'Adhesive': 'Cross-linked high shear solvent acrylic adhesive',
-      'Heat Resistance': '-40°C to +150°C continuous service',
-      'Chemical Proofing': 'Resistant to oils, brake fluids, mild acids, and detergents'
+      'Shapes': 'Dumbbell, T-shape, Butterfly, Industrial Rectangles, Die-Cut',
+      'Adhesive': 'Cross-linked solvent acrylic with glue-free deadened bridge for jewelry',
+      'Chemical Proofing': 'Resistant to oils, solvents, ultrasonic baths, steam, mild acids',
+      'Temperature Range': '-40°C to +150°C continuous service',
+      'Print Compatibility': 'Compatible with 300 DPI thermal transfer printers using Pure Resin'
     },
     features: [
       '100% tear-proof and dimensionally stable under intense humidity and weather',
-      'Silver matte surface matches brushed aluminium metal plates',
-      'UL and CSA component recognized materials available for electronics certification',
-      'Pairs with pure resin ribbons for scratch-proof asset tagging'
+      'Glue-free center stem leaves zero sticky residue on gold, silver, rings, or eyewear',
+      'Withstands ultrasonic cleaning and chemical solvent exposure without print degradation',
+      'Pairs with pure resin ribbons for scratch-proof asset tagging and tamper resistance'
     ],
-    applications: ['Electronics & PCBs', 'Automotive VIN Plates', 'Heavy Machinery', 'Outdoor Appliances'],
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80',
-    popular: false,
-    seoKeyword: 'Barcode Labels, Polyester & Jewelry Labels'
-  },
-  {
-    id: 'jewelry-labels',
-    name: 'Jewelry & Optical Dumbbell Labels',
-    category: 'specialty-labels',
-    categoryName: 'Polyester & Jewelry',
-    tagline: 'Non-Adhesive Center Loop with Ultrasonic Clean Resistance',
-    description: 'Specialty butterfly and dumbbell shaped synthetic labels designed for fine gold, silver, diamond jewelry, watches, and designer eyewear frames.',
-    specifications: {
-      'Shapes': 'Dumbbell, T-shape, Butterfly, Flag Tag',
-      'Center Stem': 'Glue-free adhesive deadened bridge prevents residue on rings',
-      'Material': 'Gloss White Polyester with high tensile tear strength',
-      'Print Compatibility': 'Compatible with desktop 300 DPI thermal printers',
-      'Ultrasonic Bath Safe': 'Withstands chemical cleaning and steam baths without fading'
-    },
-    features: [
-      'Leaves zero sticky residue on delicate precious metals or gemstones',
-      'Exceptional thermal contrast for tiny micro-barcodes and QR codes',
-      'Durable tail resists repeated customer handling and display case lighting heat',
-      'Available in tamper-evident configurations to prevent price tag switching'
+    applications: ['Gold & Diamond Showrooms', 'Optical Eyewear', 'Electronics & PCBs', 'Automotive Rating Plates'],
+    image: '/products/Barcode_Labels_Polyster_Jewellery/1.png',
+    banner: '/products/Barcode_Labels_Polyster_Jewellery/bg-banner.jpeg',
+    gallery: [
+      '/products/Barcode_Labels_Polyster_Jewellery/1.png',
+      '/products/Barcode_Labels_Polyster_Jewellery/2.png',
+      '/products/Barcode_Labels_Polyster_Jewellery/3.png',
+      '/products/Barcode_Labels_Polyster_Jewellery/4.png',
+      '/products/Barcode_Labels_Polyster_Jewellery/5.png'
     ],
-    applications: ['Gold & Diamond Showrooms', 'Optical Stores', 'Luxury Timepieces', 'Fashion Accessories'],
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=900&q=80',
-    popular: false,
+    popular: true,
     seoKeyword: 'Barcode Labels, Polyester & Jewelry Labels'
   },
   {
     id: 'barcode-printers',
-    name: 'Industrial & Desktop Barcode Printers',
+    name: 'Barcode Printer',
     category: 'printers',
     categoryName: 'Barcode Printers & Hardware',
     tagline: 'High-Duty Thermal Transfer & Direct Thermal Engines',
-    description: 'Authorized supply, installation, and integration of industrial grade label printers engineered for round-the-clock manufacturing plants and retail operations.',
+    description: 'Authorized supply, installation, and integration of industrial grade label printers engineered for round-the-clock manufacturing plants, courier dispatch hubs, and retail operations.',
     specifications: {
       'Print Resolution': '203 DPI, 300 DPI, and 600 DPI ultra-high definition',
       'Print Speed': 'Up to 14 inches per second (IPS)',
@@ -261,9 +303,50 @@ export const products = [
       'Comprehensive warranty support, original printhead replacements, and on-site servicing'
     ],
     applications: ['Factory Production Lines', 'E-Commerce Dispatch Hubs', 'Diagnostic Labs', 'Textile Mills'],
-    image: 'https://images.unsplash.com/photo-1588702547923-7093a6c3ba33?auto=format&fit=crop&w=900&q=80',
+    image: '/products/Barcode-Printer/p1.png',
+    banner: '/products/Barcode-Printer/bg-banner.jpeg',
+    gallery: [
+      '/products/Barcode-Printer/p1.png',
+      '/products/Barcode-Printer/P2.png',
+      '/products/Barcode-Printer/P3.png',
+      '/products/Barcode-Printer/P4.png',
+      '/products/Barcode-Printer/P5.png'
+    ],
     popular: true,
     seoKeyword: 'Barcode Printer'
+  },
+  {
+    id: 'food-wrapping-paper',
+    name: 'Food and Burger Wrapping Paper Rolls',
+    category: 'paper-rolls',
+    categoryName: 'Food & Butter Paper Rolls',
+    tagline: 'Grease-Resistant Custom Printed Wrapping Solutions',
+    description: 'High-performance specialty food wrapping paper rolls and pre-cut sheets, engineered to lock in freshness, absorb excess moisture, and present food attractively.',
+    specifications: {
+      'Base Paper': 'Virgin Bleached Kraft / Natural Brown Kraft',
+      'Barrier Coating': 'Poly-Coated (PE) / Wax-Coated / Biodegradable Bio-Wax',
+      'Sheet Sizing': '250x250mm, 300x300mm, 350x350mm, or continuous rolls',
+      'Print Technology': 'High-definition flexo printing with water-based inks',
+      'Tensile Strength': 'High wet-strength prevents tearing under greasy, steaming burgers'
+    },
+    features: [
+      'Prevents oil seepage on customers hands and takeaway carry bags',
+      'Vibrant custom logo printing reinforces restaurant brand recall',
+      'Excellent fold memory ensures neat wrap holds firmly in transit',
+      'Eco-friendly, recyclable, and compostable grades available'
+    ],
+    applications: ['Burger & Sandwiches', 'QSR & Cafes', 'Food Trucks', 'Catering Operations'],
+    image: '/products/Food_and_Burger_Rolls/b2.png',
+    banner: '/products/Food_and_Burger_Rolls/bg-banner.jpeg',
+    gallery: [
+      '/products/Food_and_Burger_Rolls/b2.png',
+      '/products/Food_and_Burger_Rolls/b1.png',
+      '/products/Food_and_Burger_Rolls/b3.png',
+      '/products/Food_and_Burger_Rolls/B4.png',
+      '/products/Food_and_Burger_Rolls/B5.png'
+    ],
+    popular: true,
+    seoKeyword: 'Food and Burger Wrapping Paper Rolls'
   },
   {
     id: 'food-wrapping-butter-paper',
@@ -286,9 +369,51 @@ export const products = [
       'Ideal for lining wicker baskets, serving platters, and takeaway food trays'
     ],
     applications: ['Halwai & Sweet Shops', 'Cafeterias', 'Artisan Bakeries', 'Meal Delivery Kits'],
-    image: 'https://images.unsplash.com/photo-1541781774459-bb2af2f05b55?auto=format&fit=crop&w=900&q=80',
+    image: '/products/Food_Wrapping_Butter_Paper/F1.png',
+    banner: '/products/Food_Wrapping_Butter_Paper/bg-banner.jpeg',
+    gallery: [
+      '/products/Food_Wrapping_Butter_Paper/F1.png',
+      '/products/Food_Wrapping_Butter_Paper/F2.png',
+      '/products/Food_Wrapping_Butter_Paper/F3.png',
+      '/products/Food_Wrapping_Butter_Paper/F4.png',
+      '/products/Food_Wrapping_Butter_Paper/F5.png'
+    ],
     popular: false,
     seoKeyword: 'Food Wrapping Butter Paper Manufacturer in India'
+  },
+  {
+    id: 'butter-paper-rolls-featured',
+    aliases: ['butter-paper-rolls'],
+    name: 'Butter Paper Rolls',
+    category: 'paper-rolls',
+    categoryName: 'Food & Butter Paper Rolls',
+    tagline: 'Food-Grade Greaseproof Pure Cellulose Rolls',
+    description: 'Certified 100% virgin pulp greaseproof butter paper rolls designed for sanitary food packaging, bakery wrapping, and eco-friendly food service lining.',
+    specifications: {
+      'GSM Range': '28 GSM to 45 GSM high-tensile paper',
+      'Certification': 'FSSAI / US FDA Food Contact Compliant',
+      'Grease Resistance': 'KIT Value 5 to KIT Value 8 grease barrier',
+      'Temperature Tolerance': 'Microwave & Oven safe up to 220°C',
+      'Roll Widths': '9 inches (225mm), 11 inches (280mm), 12 inches (300mm)',
+      'Roll Length': '10 meters up to 1000 meter industrial jumbo rolls'
+    },
+    features: [
+      'Non-stick surface prevents cheese, butter, and baked goods from adhering',
+      'Chlorine-free unbleached and bleached white options available',
+      'Custom printing with non-toxic, food-safe soy inks for QSR branding',
+      'Breathable composition prevents condensation buildup and keeps bread crisp'
+    ],
+    applications: ['Bakeries & Cafes', 'QSR Chains & Cloud Kitchens', 'Custom Sizes'],
+    image: '/products/butter-paper.jpg',
+    banner: '/products/Butter-Paper-Rolls/bg-banner.jpeg',
+    gallery: [
+      '/products/butter-paper.jpg',
+      '/products/Butter-Paper-Rolls/Butter-Paper-Jumbo-Roll.jpg',
+      '/products/Butter-Paper-Rolls/Parchment-Paper-2-Side-Coated.jpg',
+      '/products/Butter-Paper-Rolls/images.jpg'
+    ],
+    popular: true,
+    seoKeyword: 'Butter Paper Rolls Manufacturer'
   }
 ];
 

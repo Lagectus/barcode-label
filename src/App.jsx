@@ -9,7 +9,6 @@ import CinematicShowcase from './components/home/CinematicShowcase';
 import IndustryApplications from './components/home/IndustryApplications';
 import ManufacturingTimeline from './components/home/ManufacturingTimeline';
 import WhyChooseUs from './components/home/WhyChooseUs';
-import LocationsSEO from './components/home/LocationsSEO';
 import ConversionCTA from './components/home/ConversionCTA';
 import ContactSection from './components/home/ContactSection';
 import Footer from './components/common/Footer';
@@ -219,10 +218,7 @@ export default function App() {
             {/* 10. Why Choose Us (Verified Core Values) */}
             <WhyChooseUs onOpenQuoteModal={handleOpenQuoteModal} />
 
-            {/* 11. Regional Distribution & Location SEO (10 Cities) + Technical FAQ */}
-            <LocationsSEO onOpenQuoteModal={handleOpenQuoteModal} />
-
-            {/* 12. Bottom Conversion Call To Action Strip */}
+            {/* 11. Bottom Conversion Call To Action Strip */}
             <ConversionCTA onOpenQuoteModal={handleOpenQuoteModal} />
 
             {/* 13. Interactive Contact Form with Validation & Confetti */}

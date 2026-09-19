@@ -11,7 +11,7 @@ export const storySteps = [
       { label: 'Liner Integrity', value: '100% Zero-Break' }
     ],
     highlight: 'Advanced web guidance systems prevent label edge fraying and core slippage during high-speed printing runs.',
-    image: 'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=1200&q=80',
+    image: '/1.jpeg',
     tag: 'Rotary Slitting & Converting'
   },
   {
@@ -26,7 +26,7 @@ export const storySteps = [
       { label: 'Surface Uniformity', value: '99.8% Top-Coat' }
     ],
     highlight: 'Rigorous batch testing guarantees barcode scanners achieve instantaneous first-pass verification even under high-speed conveyors.',
-    image: 'https://images.unsplash.com/photo-1616401784845-180882ba9ba8?auto=format&fit=crop&w=1200&q=80',
+    image: '/2.jpeg',
     tag: 'Batch Quality & ANSI Verification'
   },
   {
@@ -41,7 +41,7 @@ export const storySteps = [
       { label: 'OTIF Rate', value: '99.4% On-Time' }
     ],
     highlight: 'Dedicated production corridors earmarked specifically for high-priority recurring e-commerce waybill and dispatch contracts.',
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    image: '/1.jpeg',
     tag: 'Industrial Buffer & Redundant Capacity'
   },
   {
@@ -56,7 +56,7 @@ export const storySteps = [
       { label: 'Technical Audits', value: 'Free On-Site Assessment' }
     ],
     highlight: 'Comprehensive consultation matching the exact ribbon formulation (Wax, Wax-Resin, Resin) to your specific substrate for maximum longevity.',
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=80',
+    image: '/2.jpeg',
     tag: 'Tailored Formulations & Engineering'
   }
 ];

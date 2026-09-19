@@ -15,7 +15,7 @@ const showcaseItems = [
       { label: 'Perforation Line', value: 'Micro-Perforated Easy-Tear' },
       { label: 'Core Diameter', value: '1 Inch (25mm) / 3 Inch (76mm)' }
     ],
-    image: 'https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1200&q=80',
+    image: '/products/Flipkart-Amazon-shipping-label/51-iGkEwLWL._AC_UF1000,1000_QL80_.jpg',
     stat: '100% Marketplace Compliant'
   },
   {
@@ -31,7 +31,7 @@ const showcaseItems = [
       { label: 'Backcoating', value: 'Patented Static Dissipative Silicone' },
       { label: 'Printer Brands', value: 'Zebra, TSC, Honeywell, Citizen, Godex' }
     ],
-    image: 'https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80',
+    image: '/products/Thermal-Transfer-Ribbon/1a.png',
     stat: '30% Longer Printhead Life'
   },
   {
@@ -47,7 +47,7 @@ const showcaseItems = [
       { label: 'Heat Endurance', value: 'Microwave & Oven Safe to 220°C' },
       { label: 'Grease Barrier', value: 'KIT Value 5 to KIT Value 8' }
     ],
-    image: 'https://images.unsplash.com/photo-1550547660-d9450f859349?auto=format&fit=crop&w=1200&q=80',
+    image: '/products/butter-paper.jpg',
     stat: 'FSSAI / FDA Certified Safe'
   },
   {
@@ -63,7 +63,7 @@ const showcaseItems = [
       { label: 'Cleaning Resistance', value: 'Ultrasonic Bath & Steam Safe' },
       { label: 'Adhesive Loop', value: 'Adhesive-Deadened Non-Sticky Stem' }
     ],
-    image: 'https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1200&q=80',
+    image: '/products/Barcode_Labels_Polyster_Jewellery/1.png',
     stat: 'Zero Glue Residue on Jewelry'
   }
 ];

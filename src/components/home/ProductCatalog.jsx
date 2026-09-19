@@ -104,10 +104,10 @@ export default function ProductCatalog({ onOpenQuoteModal, onNavigateProduct }) 
         {/* Product Cards Grid */}
         <div
           ref={gridRef}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch"
         >
           {filteredProducts.map((product) => (
-            <div key={product.id} className="product-card-item">
+            <div key={product.id} className="product-card-item h-full flex flex-col">
               <ProductCard
                 product={product}
                 onViewDetails={(p) => {

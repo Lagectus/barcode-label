@@ -123,39 +123,36 @@ export default function ManufacturingTimeline({ onOpenQuoteModal }) {
 
               <div>
                 {/* Photo Area */}
-                <div className="relative h-44 sm:h-48 overflow-hidden bg-zinc-950">
+                <div className="relative h-48 sm:h-52 overflow-hidden bg-zinc-100">
                   <img
                     src={item.image}
                     alt={item.title}
                     loading="lazy"
-                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-108 opacity-85 group-hover:opacity-95"
+                    className="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/85 via-zinc-950/20 to-transparent" />
-
-                  {/* Stage Number Badge */}
-                  <div className="absolute top-3.5 left-3.5 z-10 flex items-center gap-1.5 px-3 py-1 rounded-xl bg-zinc-950/85 backdrop-blur-md border border-zinc-700 text-white font-mono text-xs font-bold">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#FF4D00] animate-pulse" />
-                    <span>STAGE {item.step}</span>
-                  </div>
-
-                  {/* Machinery Tag */}
-                  <div className="absolute bottom-3 left-3 right-3 z-10 flex items-center gap-1.5 text-xs text-orange-300 font-mono font-medium truncate">
-                    <Cpu className="w-3.5 h-3.5 shrink-0" />
-                    <span className="truncate">{item.machinery}</span>
-                  </div>
                 </div>
 
                 {/* Card Body */}
                 <div className="p-5 sm:p-6">
-                  <div className="text-xs font-mono font-bold text-[#FF4D00] uppercase tracking-wider mb-1">
-                    {item.subtitle}
+                  <div className="flex items-center justify-between gap-2 mb-1.5">
+                    <span className="text-xs font-mono font-bold text-[#FF4D00] uppercase tracking-wider">
+                      {item.subtitle}
+                    </span>
+                    <span className="px-2 py-0.5 rounded-md bg-zinc-100 text-zinc-600 font-mono text-[10px] font-bold">
+                      STAGE 0{item.step}
+                    </span>
                   </div>
 
                   <h3 className="text-lg sm:text-xl font-bold text-zinc-900 tracking-tight leading-snug">
                     {item.title}
                   </h3>
 
-                  <p className="text-xs text-zinc-600 mt-2 leading-relaxed line-clamp-3">
+                  <div className="flex items-center gap-1.5 text-xs text-zinc-500 font-mono font-medium mt-1.5">
+                    <Cpu className="w-3.5 h-3.5 text-[#FF4D00] shrink-0" />
+                    <span className="truncate">{item.machinery}</span>
+                  </div>
+
+                  <p className="text-xs text-zinc-600 mt-2.5 leading-relaxed line-clamp-3">
                     {item.description}
                   </p>
 

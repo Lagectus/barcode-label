@@ -134,6 +134,30 @@
   animation: shimmerBeam 2.5s infinite;
 }
 
+/* Vertical 3D Product Carousel (Down to Top Infinite Marquee) */
+@keyframes marqueeUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-50%);
+  }
+}
+
+.animate-marquee-up-fast {
+  animation: marqueeUp 26s linear infinite;
+  will-change: transform;
+}
+
+.animate-marquee-up-slow {
+  animation: marqueeUp 32s linear infinite;
+  will-change: transform;
+}
+
+.pause-on-hover:hover {
+  animation-play-state: paused !important;
+}
+
 /* Reduced motion support */
 @media (prefers-reduced-motion: reduce) {
   * {
@@ -143,3 +167,4 @@
     scroll-behavior: auto !important;
   }
 }
+

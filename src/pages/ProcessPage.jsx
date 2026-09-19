@@ -151,20 +151,18 @@ export default function ProcessPage({ onOpenQuoteModal, onNavigatePage }) {
                 </div>
 
                 {/* Image */}
-                <div className="relative h-44 rounded-2xl overflow-hidden bg-zinc-950 border border-zinc-100">
+                <div className="relative h-44 rounded-2xl overflow-hidden bg-zinc-100 border border-zinc-200">
                   <img
                     src={proc.image}
                     alt={proc.title}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/60 via-transparent to-transparent pointer-events-none" />
-                  
-                  {/* Machinery badge */}
-                  <div className="absolute bottom-2.5 left-2.5 right-2.5">
-                    <span className="inline-block px-2.5 py-1 rounded bg-zinc-950/90 text-white font-mono text-[10px] font-bold border border-zinc-800 truncate max-w-full">
-                      ⚙ {proc.machinery}
-                    </span>
-                  </div>
+                </div>
+
+                {/* Machinery info */}
+                <div className="flex items-center gap-1.5 text-xs font-mono text-zinc-500">
+                  <span className="text-[#FF4D00]">⚙</span>
+                  <span className="truncate">{proc.machinery}</span>
                 </div>
 
                 <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">

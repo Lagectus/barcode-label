@@ -99,8 +99,13 @@ export default function ContactPage({ onNavigatePage }) {
     <div className="pt-24 bg-zinc-50 min-h-screen text-zinc-900">
       {/* 1. Cinematic Hero Banner */}
       <section ref={headerRef} className="relative bg-zinc-950 text-white py-20 lg:py-24 border-b border-zinc-800 overflow-hidden">
-        <div className="absolute inset-0 technical-grid opacity-20 pointer-events-none" />
-        <div className="absolute top-0 right-1/4 w-[500px] h-[500px] bg-orange-600/15 rounded-full blur-3xl pointer-events-none" />
+        <img
+          src="/contact-banner.jpeg"
+          alt="Contact BDOUBLEU Manufacturing Desk"
+          className="absolute inset-0 w-full h-full object-cover object-center pointer-events-none"
+        />
+        {/* Left-Side Soft Black Overlay for Text Readability */}
+        <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[50%] bg-gradient-to-r from-zinc-950/85 via-zinc-950/50 to-transparent pointer-events-none" />
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div className="flex items-center gap-2 text-xs font-mono text-zinc-400 mb-6">
