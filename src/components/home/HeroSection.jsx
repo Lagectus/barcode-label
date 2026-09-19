@@ -179,7 +179,7 @@ export default function HeroSection({ onOpenQuoteModal }) {
           className="w-full h-full object-cover object-center"
         />
         {/* Soft Left-Side Gradient Overlay for Content Readability */}
-        <div className="absolute inset-y-0 left-0 w-full lg:w-[50%] bg-gradient-to-r from-zinc-950/85 via-zinc-950/45 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[55%] bg-gradient-to-r from-zinc-950/95 via-zinc-950/75 to-transparent pointer-events-none" />
       </div>
 
       {/* Main Container */}
@@ -189,13 +189,13 @@ export default function HeroSection({ onOpenQuoteModal }) {
           {/* Left Column: Headlines & CTAs */}
           <div ref={leftColRef} className="lg:col-span-6 xl:col-span-6 max-w-xl lg:self-center lg:-translate-x-[10%]">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-zinc-300 mb-4">
+            <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-zinc-200 mb-4 drop-shadow-sm">
               <span className="h-2 w-2 rounded-full bg-[#FF4D00] shrink-0" />
               <span>BDOUBLEU · CERTIFIED MANUFACTURING · DIRECT FACTORY RATES</span>
             </div>
 
             {/* Main Headline with Real-time Typing Animation */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               <span className="block text-white">Ten Million</span>
               <span className="block text-white">Labels.</span>
 
@@ -210,7 +210,7 @@ export default function HeroSection({ onOpenQuoteModal }) {
             </h1>
 
             {/* Subhead */}
-            <p className="text-sm sm:text-base text-zinc-300 max-w-lg leading-relaxed mb-8 font-normal">
+            <p className="text-sm sm:text-base text-zinc-100 max-w-lg leading-relaxed mb-8 font-medium drop-shadow-[0_2px_8px_rgba(0,0,0,0.95)]">
               Barcode labels, thermal rolls, ribbons and food-grade butter paper — die-cut to ±0.15mm and dispatched PAN-India in 24–48 hours.
             </p>
 
