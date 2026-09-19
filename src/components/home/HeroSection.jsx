@@ -7,61 +7,61 @@ const CAROUSEL_PRODUCTS = [
     id: 'barcode-labels',
     name: 'Industrial Barcode Labels',
     image: '/products/Barcode-labels/bar-code-1.jpg',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/bg-banner/Printed-labels.jpg',
   },
   {
     id: 'shipping-labels',
     name: 'Amazon & Flipkart Shipping Labels',
     image: '/products/Flipkart-Amazon-shipping-label/51-iGkEwLWL._AC_UF1000,1000_QL80_.jpg',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/bg-banner/images.jpg',
   },
   {
     id: 'direct-thermal-labels',
     name: 'Direct Thermal Label Rolls',
     image: '/products/Direct-Thermal-Label/direct-thermal-labels.jpg',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/bg-banner/images (1).jpg',
   },
   {
     id: 'colored-barcode',
     name: 'Polyester & Jewelry Labels',
     image: '/products/Barcode_Labels_Polyster_Jewellery/1.png',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/Barcode_Labels_Polyster_Jewellery/bg-banner.jpeg',
   },
   {
     id: 'flipkart-waybills',
     name: 'Flipkart & Meesho Waybill Rolls',
     image: '/products/Flipkart-Amazon-shipping-label/1-500-flipktshippinglabelspack1-smartson-original-imah8hzxgzurfpgy.webp',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/Flipkart-Amazon-shipping-label/bg-banner.jpeg',
   },
   {
     id: 'bulk-thermal-rolls',
     name: 'Direct Thermal Bulk Packs',
     image: '/products/Direct-Thermal-Label/Direct-Thermal-Label-Rolls.jpg',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/Direct-Thermal-Label/BG-BANNER.jpeg',
   },
   {
     id: 'butter-paper',
     name: 'Food-Grade Butter Paper',
     image: '/products/butter-paper.jpg',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/Butter-Paper-Rolls/bg-banner.jpeg',
   },
   {
     id: 'ribbons',
     name: 'Thermal Transfer Ribbons',
     image: '/products/Thermal-Transfer-Ribbon/1a.png',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/bg-banner/label-ribbons.jpg',
   },
   {
     id: 'printers',
     name: 'Industrial Barcode Printers',
     image: '/products/Barcode-Printer/p1.png',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/Barcode-Printer/bg-banner.jpeg',
   },
   {
     id: 'burger-paper',
     name: 'Food & Burger Wrapping Paper',
     image: '/products/Food_and_Burger_Rolls/b1.png',
-    bgImage: '/products/Barcode-labels/bg-banner.jpeg',
+    bgImage: '/products/Food_and_Burger_Rolls/bg-banner.jpeg',
   },
 ];
 
@@ -171,15 +171,22 @@ export default function HeroSection({ onOpenQuoteModal }) {
       ref={heroRef}
       className="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-zinc-950 select-none"
     >
-      {/* Top Background Banner Image from Barcode-labels */}
+      {/* Dynamic Background Banner Images with Smooth Crossfade */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-        <img
-          src="/products/Barcode-labels/bg-banner.jpeg"
-          alt="Barcode World Hero Banner"
-          className="w-full h-full object-cover object-center"
-        />
+        {CAROUSEL_PRODUCTS.map((prod, idx) => (
+          <img
+            key={prod.id}
+            src={prod.bgImage}
+            alt={`${prod.name} Banner`}
+            className={`absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-in-out ${
+              idx === activeIndex
+                ? 'opacity-100 scale-100'
+                : 'opacity-0 scale-105 pointer-events-none'
+            }`}
+          />
+        ))}
         {/* Soft Left-Side Gradient Overlay for Content Readability */}
-        <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[55%] bg-gradient-to-r from-zinc-950/95 via-zinc-950/75 to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-full sm:w-[65%] lg:w-[55%] bg-gradient-to-r from-zinc-950/95 via-zinc-950/75 to-transparent pointer-events-none z-10" />
       </div>
 
       {/* Main Container */}
