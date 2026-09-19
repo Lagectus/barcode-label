@@ -86,8 +86,8 @@ export default function AboutPage({ onOpenQuoteModal, onNavigatePage }) {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8">
-              Headquartered in Rohini, New Delhi, BDOUBLEU® (Barcode World) is an engineering-driven converting powerhouse producing millions of barcode labels, shipping waybills, thermal ribbons, and food wrapping rolls daily for India’s fastest-growing enterprise supply chains.
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl mb-8">
+              Direct factory manufacturer in Rohini, New Delhi producing millions of barcode labels, shipping waybills, ribbons, and food wrapping rolls daily for enterprise supply chains across India.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
@@ -184,21 +184,21 @@ export default function AboutPage({ onOpenQuoteModal, onNavigatePage }) {
             </h2>
 
             <p className="text-sm sm:text-base text-zinc-600 leading-relaxed">
-              When an automated fulfillment center processes 50,000 orders an hour, a single label tear or misaligned barcode gap can shut down an entire packaging conveyor. That's why every roll manufactured at BDOUBLEU® adheres to strict micrometer tolerances and high-tack emulsion standards.
+              We convert every roll to strict micrometer tolerances and high-tack emulsion standards to eliminate jams and scanner read failures in high-speed fulfillment.
             </p>
 
-            <div className="space-y-3 pt-2">
+            <div className="space-y-2.5 pt-1">
               {[
-                'Direct-from-manufacturer wholesale economics — zero trader markups',
-                'ANSI Grade-A verified barcode acuity for instantaneous 1D/2D scanner reads',
-                'Certified food-grade virgin paper converting (FSSAI/FDA compliant)',
-                'Dedicated contingency stock buffers for e-commerce mega-sale events',
+                'Direct factory-floor pricing with zero middleman markups',
+                'ANSI Grade-A verified for instant 1D/2D scanner reads',
+                'FSSAI & FDA certified food-grade virgin paper converting',
+                'Dedicated buffer stock reserves for peak surge events',
               ].map((item, i) => (
-                <div key={i} className="flex items-start gap-3">
-                  <div className="w-5 h-5 rounded-full bg-orange-100 text-[#FF4D00] flex items-center justify-center shrink-0 mt-0.5">
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-5 h-5 rounded-full bg-orange-100 text-[#FF4D00] flex items-center justify-center shrink-0">
                     <Check className="w-3.5 h-3.5" />
                   </div>
-                  <span className="text-xs sm:text-sm text-zinc-800 font-medium leading-relaxed">{item}</span>
+                  <span className="text-xs sm:text-sm text-zinc-800 font-medium">{item}</span>
                 </div>
               ))}
             </div>

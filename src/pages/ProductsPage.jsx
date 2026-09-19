@@ -79,8 +79,8 @@ export default function ProductsPage({ onOpenQuoteModal, onNavigateProduct, onNa
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8">
-              Explore our complete factory catalog of high-density barcode labels, Amazon/Flipkart shipping waybills, thermal ribbons, greaseproof butter paper rolls, and specialty synthetic labels.
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl mb-8">
+              Direct-manufacturer catalog of barcode labels, shipping waybills, thermal ribbons, and food packaging rolls.
             </p>
 
             {/* Quick Specs Ticker */}

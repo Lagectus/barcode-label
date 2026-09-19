@@ -265,7 +265,7 @@ export default function ProductDetailPage({
                   Request Quotation for {product.name}
                 </h3>
                 <p className="text-xs text-zinc-500 mb-5">
-                  Receive an itemized wholesale pricing proposal with delivery timelines for your plant or warehouse.
+                  Receive an itemized factory wholesale proposal within 2 to 4 business hours.
                 </p>
 
                 {formSubmitted ? (
@@ -477,7 +477,7 @@ export default function ProductDetailPage({
                       ))}
                     </div>
                     <p className="text-xs sm:text-sm text-zinc-600 leading-relaxed">
-                      Designed to withstand extreme warehouse handling, hot transit, moisture exposure, and refrigeration. Suitable for retail POS, FMCG, pharmaceutical compliance, and national courier dispatch networks.
+                      Engineered for high-volume retail POS, e-commerce dispatch, FMCG inventory, and cold-chain storage.
                     </p>
                   </div>
                 </div>

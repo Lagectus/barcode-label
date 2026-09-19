@@ -15,8 +15,8 @@ export default function IndustryApplications({ onOpenQuoteModal }) {
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
             Powering Mission-Critical Operations
           </h2>
-          <p className="mt-3 text-zinc-600 text-sm sm:text-base leading-relaxed">
-            From tier-1 e-commerce automated fulfillment centers to hygienic food service counters and harsh industrial fabrication plants, our labels and packaging rolls are engineered for demanding operating conditions.
+          <p className="mt-2 text-zinc-600 text-sm sm:text-base leading-relaxed max-w-xl">
+            Engineered for high-speed automated sorting, food service, pharma compliance, and harsh industrial environments.
           </p>
         </div>
 

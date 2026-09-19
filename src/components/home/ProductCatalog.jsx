@@ -66,8 +66,8 @@ export default function ProductCatalog({ onOpenQuoteModal, onNavigateProduct }) 
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight">
               Industrial Labelling &amp; Packaging Range
             </h2>
-            <p className="mt-3 text-zinc-600 max-w-2xl text-sm sm:text-base">
-              Engineered for high-throughput automated fulfillment, retail POS, food safety, and harsh manufacturing environments across India.
+            <p className="mt-2 text-zinc-600 max-w-xl text-sm sm:text-base">
+              High-speed barcode labels, ribbons, and food wrapping rolls for enterprise supply chains.
             </p>
           </div>
 

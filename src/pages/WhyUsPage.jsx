@@ -115,8 +115,8 @@ export default function WhyUsPage({ onOpenQuoteModal, onNavigatePage }) {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8">
-              We combine heavy industrial rotary converting power with micrometer precision, direct wholesale economics, and a zero-jam guarantee to keep your operations moving at peak speed.
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl mb-8">
+              Direct-manufacturer economics, zero-jam precision cutting, and 24–48h nationwide dispatch.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">

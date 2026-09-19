@@ -69,8 +69,8 @@ export default function ProcessPage({ onOpenQuoteModal, onNavigatePage }) {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8">
-              Explore our disciplined 6-stage manufacturing workflow governed by tight ISO 9001:2015 engineering tolerances, clean-tear micro-perforations, and automated barcode verifiers.
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl mb-8">
+              Our 6-stage rotary converting workflow governed by strict ISO tolerances and automated barcode verification.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">

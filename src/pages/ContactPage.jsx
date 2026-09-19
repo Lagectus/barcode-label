@@ -132,8 +132,8 @@ export default function ContactPage({ onNavigatePage }) {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8">
-              Speak directly with our converting technicians and sales engineers. Get same-day wholesale quotations, schedule a factory visit, or order prototype testing kits.
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl mb-8">
+              Connect directly with our sales engineers for wholesale quotations, prototype testing kits, and facility tours.
             </p>
 
             <div className="flex flex-wrap gap-4 text-xs font-mono text-zinc-300">
@@ -213,8 +213,8 @@ export default function ContactPage({ onNavigatePage }) {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-zinc-950 tracking-tight mb-2">
               Request Itemized Quotation
             </h2>
-            <p className="text-xs sm:text-sm text-zinc-500 mb-8 leading-relaxed">
-              Fill out your volume and product specifications below. Our commercial desk will review your requirements and respond with a formal quotation within 2 to 4 hours.
+            <p className="text-xs sm:text-sm text-zinc-500 mb-6 leading-relaxed">
+              Submit your roll dimensions and volume below for a formal wholesale quote within 2 to 4 hours.
             </p>
 
             {submitted ? (

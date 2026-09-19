@@ -5,37 +5,37 @@ const reasons = [
   {
     icon: ShieldCheck,
     title: 'ANSI Grade-A Scan Quality',
-    desc: 'Every master roll is batch-verified on optical barcode analyzers, ensuring flawless 100% first-pass read rates across automated conveyor scanners and handheld terminals.',
+    desc: 'Batch-verified on optical analyzers for 100% first-pass read rates on conveyor scanners.',
     tag: 'Zero Downtime'
   },
   {
     icon: Sliders,
     title: 'Custom Slitting & Core Sizing',
-    desc: 'Complete versatility across 0.5", 1", and 3" cores, custom slit widths from 20mm to 300mm, perforated fanfolds, and specialized freezer-grade adhesive formulations.',
+    desc: 'Custom 0.5", 1", and 3" cores with widths from 20mm to 300mm and specialized adhesives.',
     tag: 'Custom Engineered'
   },
   {
     icon: Cpu,
     title: 'Direct Factory Converting',
-    desc: 'Eliminate trading layers and distributor margins. We own and operate high-capacity rotary die-cutters, slitting rewinding machinery, and flexo printing presses in New Delhi.',
+    desc: 'Direct factory-floor pricing from our rotary converting plant—zero middleman markups.',
     tag: 'Direct Pricing'
   },
   {
     icon: Truck,
     title: 'PAN-India Buffer Stock & JIT',
-    desc: 'We maintain dedicated raw stock reserves for enterprise clients to absorb festive e-commerce surges, ensuring your dispatch lines never experience roll stockouts.',
+    desc: 'Dedicated raw stock reserves ensure uninterrupted dispatch during peak festive surges.',
     tag: '24–48h Dispatch'
   },
   {
     icon: RefreshCw,
     title: 'Complete Substrate Range',
-    desc: 'From thermal top-coated paper and chromo art paper to extreme-durability silver polyester, food-grade butter paper, and thermal transfer ribbons under one roof.',
+    desc: 'Direct thermal, chromo, polyester, butter paper, and ribbons from a single source.',
     tag: 'Single-Source Supply'
   },
   {
     icon: Headphones,
     title: 'Dedicated Technical B2B Support',
-    desc: 'Our printing engineers advise on the exact substrate-to-ribbon pairing (Wax, Wax-Resin, Resin) to protect thermal printheads and optimize cost per printed label.',
+    desc: 'Expert substrate and ribbon pairing to protect printheads and lower cost-per-label.',
     tag: 'Expert Engineering'
   }
 ];

@@ -65,8 +65,8 @@ export default function LocationsPage({ onOpenQuoteModal, onNavigatePage }) {
               </span>
             </h1>
 
-            <p className="text-base sm:text-lg text-zinc-300 leading-relaxed max-w-2xl mb-8">
-              Converting in Rohini, New Delhi and supplying directly to fulfillment warehouses, manufacturing plants, and retail distribution centers across every major economic zone in India.
+            <p className="text-sm sm:text-base text-zinc-300 leading-relaxed max-w-xl mb-8">
+              Manufactured in New Delhi and supplied directly to fulfillment centers, plants, and warehouses across India.
             </p>
 
             <div className="flex flex-wrap items-center gap-4">
