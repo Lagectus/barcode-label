@@ -5,9 +5,7 @@ import TrustStrip from './components/home/TrustStrip';
 import InteractiveStorySection from './components/home/InteractiveStorySection';
 import StatsCounter from './components/home/StatsCounter';
 import ProductCatalog from './components/home/ProductCatalog';
-import CinematicShowcase from './components/home/CinematicShowcase';
 import IndustryApplications from './components/home/IndustryApplications';
-import ManufacturingTimeline from './components/home/ManufacturingTimeline';
 import WhyChooseUs from './components/home/WhyChooseUs';
 import ConversionCTA from './components/home/ConversionCTA';
 import ContactSection from './components/home/ContactSection';
@@ -203,19 +201,10 @@ export default function App() {
               onNavigateProduct={handleNavigateProduct}
             />
 
-            {/* 7. Cinematic Product Showcase Spotlight */}
-            <CinematicShowcase 
-              onOpenQuoteModal={handleOpenQuoteModal} 
-              onNavigateProduct={handleNavigateProduct}
-            />
-
-            {/* 8. Industries & Applications */}
+            {/* 7. Industries & Applications */}
             <IndustryApplications onOpenQuoteModal={handleOpenQuoteModal} />
 
-            {/* 9. Manufacturing Process Timeline (01-06) */}
-            <ManufacturingTimeline onOpenQuoteModal={handleOpenQuoteModal} />
-
-            {/* 10. Why Choose Us (Verified Core Values) */}
+            {/* 8. Why Choose Us (Verified Core Values) */}
             <WhyChooseUs onOpenQuoteModal={handleOpenQuoteModal} />
 
             {/* 11. Bottom Conversion Call To Action Strip */}

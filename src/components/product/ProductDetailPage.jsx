@@ -255,26 +255,6 @@ export default function ProductDetailPage({
                 ))}
               </div>
 
-              {/* Manufacturing Assurance Card */}
-              <div className="p-6 rounded-3xl bg-white border border-zinc-200 shadow-sm space-y-4">
-                <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-orange-50 text-[#FF4D00] flex items-center justify-center border border-orange-100 font-bold">
-                    <ShieldCheck className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <h4 className="text-sm font-bold text-zinc-900">
-                      100% Quality &amp; Tolerance Guarantee
-                    </h4>
-                    <p className="text-xs text-zinc-500">
-                      Converted at our Rohini, New Delhi manufacturing plant
-                    </p>
-                  </div>
-                </div>
-                <p className="text-xs text-zinc-600 leading-relaxed">
-                  Every batch of {product.name} is calibrated to eliminate printer jam downtime, adhesive bleeding, and barcode scanner read failures. Custom roll diameters, core sizes, and pre-printed logos available.
-                </p>
-              </div>
-
               {/* Fast On-Page RFQ Calculator / Quote Block */}
               <div className="p-8 rounded-3xl bg-white border border-zinc-200 shadow-sm relative">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-orange-500/10 text-[#FF4D00] text-xs font-mono font-bold uppercase tracking-wider mb-3 border border-orange-500/20">
@@ -474,19 +454,6 @@ export default function ProductDetailPage({
                         </li>
                       ))}
                     </ul>
-                  </div>
-
-                  {/* Testing Benchmark */}
-                  <div className="p-6 rounded-3xl bg-zinc-950 text-white border border-zinc-800 shadow-lg">
-                    <div className="text-xs font-mono font-bold text-[#FF4D00] uppercase mb-1">
-                      QC BENCHMARK REPORT
-                    </div>
-                    <div className="text-sm font-bold text-white mb-2">
-                      Zero-Jamming High Speed Feed Rating
-                    </div>
-                    <p className="text-xs text-zinc-400 leading-relaxed">
-                      Evaluated on high-speed industrial label dispensers and thermal printers (Zebra ZT411, TSC 244 Pro) operating continuously at 8 to 14 inches per second.
-                    </p>
                   </div>
                 </div>
               )}

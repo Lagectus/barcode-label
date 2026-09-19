@@ -9,7 +9,6 @@ import {
   Factory,
   Check
 } from 'lucide-react';
-import { storySteps } from '../data/storyData';
 
 export default function AboutPage({ onOpenQuoteModal, onNavigatePage }) {
   const headerRef = useRef(null);
@@ -224,58 +223,7 @@ export default function AboutPage({ onOpenQuoteModal, onNavigatePage }) {
         </div>
       </section>
 
-      {/* 4. The 4 Engineering Pillars */}
-      <section className="py-20 bg-white border-y border-zinc-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-2xl mx-auto mb-14">
-            <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4D00] mb-2">
-              FOUNDATIONAL PILLARS
-            </div>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-zinc-950 tracking-tight">
-              Engineered Excellence Across Every Roll
-            </h2>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {storySteps.map((step, idx) => (
-              <div
-                key={idx}
-                className="p-6 rounded-3xl bg-zinc-50 border border-zinc-200 hover:border-[#FF4D00]/50 hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
-              >
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="w-10 h-10 rounded-xl bg-white border border-zinc-200 flex items-center justify-center font-mono font-bold text-xs text-[#FF4D00] shadow-xs">
-                      {step.step}
-                    </span>
-                    <span className="text-[10px] font-mono font-bold text-zinc-400 uppercase">
-                      {step.tag}
-                    </span>
-                  </div>
-
-                  <h3 className="text-lg font-bold text-zinc-900 tracking-tight">
-                    {step.title}
-                  </h3>
-
-                  <p className="text-xs text-zinc-600 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
-
-                <div className="pt-4 mt-6 border-t border-zinc-200 space-y-1.5">
-                  {step.metrics.map((m, mIdx) => (
-                    <div key={mIdx} className="flex justify-between text-[11px]">
-                      <span className="text-zinc-500">{m.label}:</span>
-                      <span className="font-mono font-bold text-zinc-900">{m.value}</span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Company Evolution Timeline */}
+      {/* 4. Company Evolution Timeline */}
       <section className="py-20 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-xl mx-auto mb-14">
           <div className="text-xs font-mono font-bold uppercase tracking-wider text-[#FF4D00] mb-2">
