@@ -47,13 +47,13 @@ export default function InteractiveStorySection({ onOpenQuoteModal }) {
             <span>ABOUT BDOUBLEU® / BARCODE WORLD</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-zinc-950 tracking-tight leading-tight">
-            Engineered for Precision. <br className="hidden sm:inline" />
+            Precision Barcode Labels. <br className="hidden sm:inline" />
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF4D00] via-orange-600 to-zinc-900">
-              Built for Industrial Scale.
+              100% Scan Accuracy Guaranteed.
             </span>
           </h2>
-          <p className="mt-4 text-base sm:text-lg text-zinc-600 leading-relaxed">
-            From our advanced rotary converting facility in Rohini, New Delhi to enterprise supply chains across India, BDOUBLEU® redefines manufacturing reliability in self-adhesive barcode labels, thermal transfer ribbons, and food-safe packaging.
+          <p className="mt-3 text-sm sm:text-base text-zinc-600 leading-relaxed max-w-xl">
+            Factory-converted barcode rolls and thermal ribbons engineered for zero-jam printing and instant 1D/2D scanner reads.
           </p>
         </div>
 
