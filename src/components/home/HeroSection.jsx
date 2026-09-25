@@ -250,10 +250,10 @@ export default function HeroSection({ onOpenQuoteModal }) {
             </div>
           </div>
 
-          {/* Right Column: Infinite Carousel with Dynamic Background Sync */}
+          {/* Right Column: Centered Infinite Carousel with Dynamic Background Sync */}
           <div
             ref={carouselWrapperRef}
-            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-center mt-12 sm:mt-16 lg:mt-0 lg:pt-6 xl:pt-10 pb-2"
+            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-center mt-10 lg:mt-0"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
