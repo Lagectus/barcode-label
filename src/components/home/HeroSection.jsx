@@ -194,7 +194,7 @@ export default function HeroSection({ onOpenQuoteModal }) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
           
           {/* Left Column: Headlines & CTAs */}
-          <div ref={leftColRef} className="lg:col-span-6 xl:col-span-6 max-w-xl lg:self-center lg:-translate-x-[10%]">
+          <div ref={leftColRef} className="lg:col-span-6 xl:col-span-6 max-w-xl lg:self-center">
             {/* Eyebrow */}
             <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono tracking-wider uppercase text-zinc-300 mb-4 drop-shadow-sm">
               <span className="h-2 w-2 rounded-full bg-[#FF4D00] shrink-0" />
@@ -250,10 +250,10 @@ export default function HeroSection({ onOpenQuoteModal }) {
             </div>
           </div>
 
-          {/* Right Column: Lowered Infinite Carousel with Dynamic Background Sync */}
+          {/* Right Column: Infinite Carousel with Dynamic Background Sync */}
           <div
             ref={carouselWrapperRef}
-            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-end mt-12 sm:mt-16 lg:mt-0 lg:pt-24 xl:pt-32 lg:translate-y-16 xl:translate-y-20 pb-2"
+            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-center mt-12 sm:mt-16 lg:mt-0 lg:pt-6 xl:pt-10 pb-2"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >
