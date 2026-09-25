@@ -169,7 +169,7 @@ export default function HeroSection({ onOpenQuoteModal }) {
     <section
       id="hero"
       ref={heroRef}
-      className="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 bg-zinc-950 select-none"
+      className="relative min-h-[95vh] lg:min-h-screen flex items-center justify-center overflow-hidden pt-36 sm:pt-40 lg:pt-36 pb-14 lg:pb-16 bg-zinc-950 select-none"
     >
       {/* Dynamic Background Banner Images with Smooth Crossfade */}
       <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
@@ -191,7 +191,7 @@ export default function HeroSection({ onOpenQuoteModal }) {
 
       {/* Main Container */}
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-6 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-8 items-end">
           
           {/* Left Column: Headlines & CTAs */}
           <div ref={leftColRef} className="lg:col-span-6 xl:col-span-6 max-w-xl lg:self-center">
@@ -204,12 +204,12 @@ export default function HeroSection({ onOpenQuoteModal }) {
             </div>
 
             {/* Main Headline with Real-time Typing Animation */}
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-5xl xl:text-6xl font-extrabold text-white tracking-tight leading-[1.08] mb-6 drop-shadow-[0_2px_10px_rgba(0,0,0,0.8)]">
               <span className="block text-white">Ten Million</span>
               <span className="block text-white">Labels.</span>
 
               {/* Live Typing Text */}
-              <div className="flex flex-wrap items-center mt-2 min-h-[50px] sm:min-h-[64px]">
+              <div className="flex flex-wrap items-center mt-2 min-h-[46px] sm:min-h-[56px] lg:min-h-[60px]">
                 {/* Animated Typing Text with Blinking Cursor */}
                 <span className="inline-flex items-center text-[#FF4D00]">
                   <span>{typedText}</span>
@@ -250,10 +250,10 @@ export default function HeroSection({ onOpenQuoteModal }) {
             </div>
           </div>
 
-          {/* Right Column: Centered Infinite Carousel with Dynamic Background Sync */}
+          {/* Right Column: Lowered Infinite Carousel with Dynamic Background Sync */}
           <div
             ref={carouselWrapperRef}
-            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-center mt-10 lg:mt-0"
+            className="lg:col-span-6 xl:col-span-6 relative w-full lg:self-end mt-10 sm:mt-12 lg:mt-0 lg:pt-16 xl:pt-20 lg:translate-y-6 xl:translate-y-10 pb-2"
             onMouseEnter={() => setIsPaused(true)}
             onMouseLeave={() => setIsPaused(false)}
           >

@@ -116,18 +116,18 @@ export default function Navbar({
           ? 'h-0 opacity-0 overflow-hidden border-transparent' 
           : 'h-9 bg-zinc-950 text-zinc-300 border-zinc-800'
       }`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full flex items-center justify-between">
-          <div className="flex items-center gap-3 lg:gap-6 whitespace-nowrap shrink-0">
-            <span className="flex items-center gap-1.5 text-[#FF4D00] font-bold tracking-wide shrink-0">
+        <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+          <div className="flex items-center gap-6">
+            <span className="flex items-center gap-1.5 text-[#FF4D00] font-bold tracking-wide">
               <ShieldCheck className="w-3.5 h-3.5 text-[#FF4D00]" /> Direct Industrial Manufacturer • BDOUBLEU®
             </span>
-            <span className="hidden xl:inline text-zinc-700">|</span>
-            <span className="hidden xl:inline text-zinc-400">
+            <span className="text-zinc-700">|</span>
+            <span className="text-zinc-400">
               Bulk Roll Supply: Barcode Labels • Thermal Ribbons • Butter Paper
             </span>
           </div>
 
-          <div className="flex items-center gap-4 lg:gap-6 whitespace-nowrap shrink-0">
+          <div className="flex items-center gap-6">
             <a href="tel:+919811000000" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Phone className="w-3 h-3 text-[#FF4D00]" />
               <span>+91 98110 00000 / Sales Desk</span>
