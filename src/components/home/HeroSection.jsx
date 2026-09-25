@@ -196,9 +196,11 @@ export default function HeroSection({ onOpenQuoteModal }) {
           {/* Left Column: Headlines & CTAs */}
           <div ref={leftColRef} className="lg:col-span-6 xl:col-span-6 max-w-xl lg:self-center lg:-translate-x-[10%]">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono font-bold tracking-wider uppercase text-zinc-200 mb-4 drop-shadow-sm">
+            <div className="inline-flex items-center gap-2 text-xs sm:text-sm font-mono tracking-wider uppercase text-zinc-300 mb-4 drop-shadow-sm">
               <span className="h-2 w-2 rounded-full bg-[#FF4D00] shrink-0" />
-              <span>BDOUBLEU · CERTIFIED MANUFACTURING · DIRECT FACTORY RATES</span>
+              <span>
+                <strong className="font-black text-white">BARCODE WORLD</strong> · CERTIFIED MANUFACTURING · DIRECT FACTORY RATES
+              </span>
             </div>
 
             {/* Main Headline with Real-time Typing Animation */}
